@@ -6,9 +6,18 @@
   <title>Vocalis – From Fragments to Full Expression</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/themes/dark.css" />
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/shoelace.js"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/themes/dark.css"
+  />
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/shoelace.js"
+  ></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <style>
     :root {
@@ -22,6 +31,15 @@
       line-height: 1.6;
     }
     a { color: var(--accent-color); }
+    .logo-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+    .logo-header img {
+      height: 40px;
+    }
     header {
       text-align: center;
       padding: 4rem 1rem 2rem;
@@ -66,9 +84,17 @@
       gap: 1rem;
       margin-top: 2rem;
     }
+    .illustrations figure {
+      margin: 0;
+    }
     .illustrations img {
       width: 100%;
       border-radius: 8px;
+    }
+    .illustrations figcaption {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
     }
     footer {
       text-align: center;
@@ -91,26 +117,64 @@
       background: #111;
       border: 1px solid #222;
     }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 2rem 1rem 1rem;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="app">
+    <nav class="logo-header">
+      <img id="logo" alt="Vocalis logo" />
+    </nav>
     <header>
       <img id="hero-image" class="hero-image" alt="Illustration of AI-powered communication" />
       <h1>Vocalis</h1>
       <p>AI-powered communication that turns fragments into fluent, personal expression.</p>
       <form @submit.prevent="joinWaitlist">
-        <sl-input placeholder="Email address" type="email" :value="email" @input="email = $event.target.value" size="medium"></sl-input>
+        <sl-input
+          placeholder="Email address"
+          type="email"
+          :value="email"
+          @input="email = $event.target.value"
+          size="medium"
+        ></sl-input>
         <sl-button variant="primary" type="submit">Join the Waitlist</sl-button>
       </form>
-      <sl-alert v-if="submitted" type="success" open duration="3000" closable style="max-width:300px;margin:1rem auto 0;">Thanks! We'll be in touch.</sl-alert>
+      <sl-alert
+        v-if="submitted"
+        type="success"
+        open
+        duration="3000"
+        closable
+        style="max-width:300px;margin:1rem auto 0;"
+      >
+        Thanks! We'll be in touch.
+      </sl-alert>
     </header>
 
     <section>
       <h2>The Problem</h2>
-      <p>Millions of people with verbal disabilities—from cerebral palsy to ALS—face tools that reduce them to rigid boards or robotic phrases. Communication becomes functional, but never truly human.</p>
+      <p>
+        Millions of people with verbal disabilities—from cerebral palsy to ALS—face tools that
+        reduce them to rigid boards or robotic phrases. Communication becomes functional, but
+        never truly human.
+      </p>
       <h2>The Solution</h2>
-      <p>Vocalis transforms partial speech, text, or sketches into natural sentences in real time, preserving the user's tone, style, and personality.</p>
+      <p>
+        Vocalis transforms partial speech, text, or sketches into natural sentences in real time,
+        preserving the user's tone, style, and personality.
+      </p>
     </section>
 
     <sl-divider></sl-divider>
@@ -120,15 +184,24 @@
       <div class="use-cases">
         <sl-card>
           <strong slot="header">At a restaurant</strong>
-          <p><em>Input:</em> "want… water"<br><em>Output:</em> "Could I have a glass of water, please?"</p>
+          <p>
+            <em>Input:</em> "want… water"<br>
+            <em>Output:</em> "Could I have a glass of water, please?"
+          </p>
         </sl-card>
         <sl-card>
           <strong slot="header">In a social setting</strong>
-          <p><em>Input:</em> "funny… dog vid… haha"<br><em>Output:</em> "That dog video cracked me up. Absolute chaos."</p>
+          <p>
+            <em>Input:</em> "funny… dog vid… haha"<br>
+            <em>Output:</em> "That dog video cracked me up. Absolute chaos."
+          </p>
         </sl-card>
         <sl-card>
           <strong slot="header">In class or a meeting</strong>
-          <p><em>Input:</em> "don’t… agree… point"<br><em>Output:</em> "I don’t agree with that point. Here’s another perspective…"</p>
+          <p>
+            <em>Input:</em> "don’t… agree… point"<br>
+            <em>Output:</em> "I don’t agree with that point. Here’s another perspective…"
+          </p>
         </sl-card>
       </div>
     </section>
@@ -137,9 +210,18 @@
 
     <section class="illustrations">
       <h2>Visualizing Possibilities</h2>
-      <img id="illustration-1" alt="Assistive communication illustration 1" />
-      <img id="illustration-2" alt="Assistive communication illustration 2" />
-      <img id="illustration-3" alt="Assistive communication illustration 3" />
+      <figure>
+        <img id="illustration-1" alt="Assistive communication illustration 1" />
+        <figcaption>Ordering with confidence in a restaurant.</figcaption>
+      </figure>
+      <figure>
+        <img id="illustration-2" alt="Assistive communication illustration 2" />
+        <figcaption>Sharing laughs with friends.</figcaption>
+      </figure>
+      <figure>
+        <img id="illustration-3" alt="Assistive communication illustration 3" />
+        <figcaption>Expressing ideas in class.</figcaption>
+      </figure>
     </section>
 
     <sl-divider></sl-divider>
@@ -153,27 +235,40 @@
         </sl-card>
         <sl-card>
           <strong slot="header">Style Personalization</strong>
-          <p>Choose tones like casual, formal, or witty and Vocalis adapts to your personality.</p>
+            <p>
+              Choose tones like casual, formal, or witty and Vocalis adapts to your personality.
+            </p>
         </sl-card>
         <sl-card>
           <strong slot="header">Multi-Modal Input</strong>
-          <p>Voice, text shorthand, sketches, or pictograms—all become expressive sentences.</p>
+            <p>
+              Voice, text shorthand, sketches, or pictograms—all become expressive sentences.
+            </p>
         </sl-card>
         <sl-card>
           <strong slot="header">Context Awareness</strong>
-          <p>Understands settings—from restaurants to meetings—to tailor communication automatically.</p>
+            <p>
+              Understands settings—from restaurants to meetings—to tailor communication
+              automatically.
+            </p>
         </sl-card>
         <sl-card>
           <strong slot="header">Real-Time Output</strong>
-          <p>Generates polished text and synthetic voice instantly with quick-swipe alternatives.</p>
+            <p>
+              Generates polished text and synthetic voice instantly with quick-swipe alternatives.
+            </p>
         </sl-card>
         <sl-card>
           <strong slot="header">Expressive Add-ons</strong>
-          <p>Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.</p>
+            <p>
+              Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.
+            </p>
         </sl-card>
         <sl-card>
           <strong slot="header">Privacy First</strong>
-          <p>On-device learning keeps your data secure while personalizing your experience.</p>
+            <p>
+              On-device learning keeps your data secure while personalizing your experience.
+            </p>
         </sl-card>
       </div>
     </section>
@@ -182,7 +277,10 @@
 
     <section>
       <h2>Differentiators</h2>
-      <p>Where others offer mere functionality, Vocalis delivers identity and dignity. It turns fragments into expressive speech—not just clarity, but character.</p>
+      <p>
+        Where others offer mere functionality, Vocalis delivers identity and dignity. It turns
+        fragments into expressive speech—not just clarity, but character.
+      </p>
     </section>
   </div>
 
@@ -207,27 +305,45 @@
       },
       mounted() {
         document.getElementById('year').textContent = new Date().getFullYear();
-        const heroPrompt = 'futuristic illustration of accessible communication empowering speech';
-        fetch(`https://image.pollinations.ai/prompt/${encodeURIComponent(heroPrompt)}?width=1200&height=600`, {
-          referrer: 'https://endemicmedia.github.io/'
-        })
+        const style = 'cohesive vibrant digital art style';
+        const logoPrompt = `minimal logo for Vocalis, ${style}`;
+        const logoUrl =
+          'https://image.pollinations.ai/prompt/' +
+          encodeURIComponent(logoPrompt) +
+          '?width=128&height=128&nologo=true';
+        fetch(logoUrl, { referrer: 'https://endemicmedia.github.io/' })
+          .then(r => r.blob())
+          .then(b => {
+            document.getElementById('logo').src = URL.createObjectURL(b);
+          })
+          .catch(err => console.error('Logo failed', err));
+        const heroPrompt =
+          `futuristic illustration of accessible communication empowering speech, ${style}`;
+        const heroUrl =
+          'https://image.pollinations.ai/prompt/' +
+          encodeURIComponent(heroPrompt) +
+          '?width=1200&height=600&nologo=true';
+        fetch(heroUrl, { referrer: 'https://endemicmedia.github.io/' })
           .then(r => r.blob())
           .then(b => {
             document.getElementById('hero-image').src = URL.createObjectURL(b);
           })
           .catch(err => console.error('Hero image failed', err));
         const prompts = [
-          'person using AI to communicate at a restaurant, digital art',
-          'friends chatting with assistive speech technology, vibrant illustration',
-          'student expressing ideas with AI aid in classroom, colorful art'
+          'person using AI to communicate at a restaurant',
+          'friends chatting with assistive speech technology',
+          'student expressing ideas with AI aid in classroom'
         ];
         prompts.forEach((p, i) => {
-          fetch(`https://image.pollinations.ai/prompt/${encodeURIComponent(p)}?width=512&height=512`, {
-            referrer: 'https://endemicmedia.github.io/'
-          })
+          const url =
+            'https://image.pollinations.ai/prompt/' +
+            encodeURIComponent(`${p}, ${style}`) +
+            '?width=512&height=512&nologo=true';
+          fetch(url, { referrer: 'https://endemicmedia.github.io/' })
             .then(r => r.blob())
             .then(b => {
-              document.getElementById(`illustration-${i + 1}`).src = URL.createObjectURL(b);
+              document.getElementById(`illustration-${i + 1}`).src =
+                URL.createObjectURL(b);
             })
             .catch(err => console.error('Illustration failed', i, err));
         });
