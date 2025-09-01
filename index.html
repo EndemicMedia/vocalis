@@ -26,6 +26,13 @@
       text-align: center;
       padding: 4rem 1rem 2rem;
     }
+    .hero-image {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 2rem;
+    }
     header h1 {
       font-size: 2.5rem;
       margin-bottom: 0.5rem;
@@ -53,6 +60,16 @@
       gap: 1.5rem;
       margin-top: 1.5rem;
     }
+    .illustrations {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .illustrations img {
+      width: 100%;
+      border-radius: 8px;
+    }
     footer {
       text-align: center;
       padding: 2rem 1rem;
@@ -79,6 +96,7 @@
 <body>
   <div id="app">
     <header>
+      <img id="hero-image" class="hero-image" alt="Illustration of AI-powered communication" />
       <h1>Vocalis</h1>
       <p>AI-powered communication that turns fragments into fluent, personal expression.</p>
       <form @submit.prevent="joinWaitlist">
@@ -113,6 +131,15 @@
           <p><em>Input:</em> "don’t… agree… point"<br><em>Output:</em> "I don’t agree with that point. Here’s another perspective…"</p>
         </sl-card>
       </div>
+    </section>
+
+    <sl-divider></sl-divider>
+
+    <section class="illustrations">
+      <h2>Visualizing Possibilities</h2>
+      <img id="illustration-1" alt="Assistive communication illustration 1" />
+      <img id="illustration-2" alt="Assistive communication illustration 2" />
+      <img id="illustration-3" alt="Assistive communication illustration 3" />
     </section>
 
     <sl-divider></sl-divider>
@@ -180,6 +207,30 @@
       },
       mounted() {
         document.getElementById('year').textContent = new Date().getFullYear();
+        const heroPrompt = 'futuristic illustration of accessible communication empowering speech';
+        fetch(`https://image.pollinations.ai/prompt/${encodeURIComponent(heroPrompt)}?width=1200&height=600`, {
+          referrer: 'https://endemicmedia.github.io/'
+        })
+          .then(r => r.blob())
+          .then(b => {
+            document.getElementById('hero-image').src = URL.createObjectURL(b);
+          })
+          .catch(err => console.error('Hero image failed', err));
+        const prompts = [
+          'person using AI to communicate at a restaurant, digital art',
+          'friends chatting with assistive speech technology, vibrant illustration',
+          'student expressing ideas with AI aid in classroom, colorful art'
+        ];
+        prompts.forEach((p, i) => {
+          fetch(`https://image.pollinations.ai/prompt/${encodeURIComponent(p)}?width=512&height=512`, {
+            referrer: 'https://endemicmedia.github.io/'
+          })
+            .then(r => r.blob())
+            .then(b => {
+              document.getElementById(`illustration-${i + 1}`).src = URL.createObjectURL(b);
+            })
+            .catch(err => console.error('Illustration failed', i, err));
+        });
       }
     });
   </script>
