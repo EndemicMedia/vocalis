@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocalis – From Fragments to Full Expression</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/themes/dark.css" />
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/shoelace.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <style>
+    :root {
+      --accent-color: #c8a46b;
+    }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top left, #1a1a1a, #000);
+      color: #f5f5f5;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--accent-color); }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    header p {
+      max-width: 600px;
+      margin: 0.5rem auto 2rem;
+      font-weight: 300;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .use-cases {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      background: #0a0a0a;
+    }
+    form {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    sl-button::part(base) {
+      background: var(--accent-color);
+      color: #000;
+    }
+    sl-card::part(base) {
+      background: #111;
+      border: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <h1>Vocalis</h1>
+      <p>AI-powered communication that turns fragments into fluent, personal expression.</p>
+      <form @submit.prevent="joinWaitlist">
+        <sl-input placeholder="Email address" type="email" :value="email" @input="email = $event.target.value" size="medium"></sl-input>
+        <sl-button variant="primary" type="submit">Join the Waitlist</sl-button>
+      </form>
+      <sl-alert v-if="submitted" type="success" open duration="3000" closable style="max-width:300px;margin:1rem auto 0;">Thanks! We'll be in touch.</sl-alert>
+    </header>
+
+    <section>
+      <h2>The Problem</h2>
+      <p>Millions of people with verbal disabilities—from cerebral palsy to ALS—face tools that reduce them to rigid boards or robotic phrases. Communication becomes functional, but never truly human.</p>
+      <h2>The Solution</h2>
+      <p>Vocalis transforms partial speech, text, or sketches into natural sentences in real time, preserving the user's tone, style, and personality.</p>
+    </section>
+
+    <sl-divider></sl-divider>
+
+    <section>
+      <h2>Example Use Cases</h2>
+      <div class="use-cases">
+        <sl-card>
+          <strong slot="header">At a restaurant</strong>
+          <p><em>Input:</em> "want… water"<br><em>Output:</em> "Could I have a glass of water, please?"</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">In a social setting</strong>
+          <p><em>Input:</em> "funny… dog vid… haha"<br><em>Output:</em> "That dog video cracked me up. Absolute chaos."</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">In class or a meeting</strong>
+          <p><em>Input:</em> "don’t… agree… point"<br><em>Output:</em> "I don’t agree with that point. Here’s another perspective…"</p>
+        </sl-card>
+      </div>
+    </section>
+
+    <sl-divider></sl-divider>
+
+    <section>
+      <h2>Core Features</h2>
+      <div class="features">
+        <sl-card>
+          <strong slot="header">Fragment Expansion</strong>
+          <p>Convert incomplete speech or text into fluent, context-aware sentences.</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">Style Personalization</strong>
+          <p>Choose tones like casual, formal, or witty and Vocalis adapts to your personality.</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">Multi-Modal Input</strong>
+          <p>Voice, text shorthand, sketches, or pictograms—all become expressive sentences.</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">Context Awareness</strong>
+          <p>Understands settings—from restaurants to meetings—to tailor communication automatically.</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">Real-Time Output</strong>
+          <p>Generates polished text and synthetic voice instantly with quick-swipe alternatives.</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">Expressive Add-ons</strong>
+          <p>Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.</p>
+        </sl-card>
+        <sl-card>
+          <strong slot="header">Privacy First</strong>
+          <p>On-device learning keeps your data secure while personalizing your experience.</p>
+        </sl-card>
+      </div>
+    </section>
+
+    <sl-divider></sl-divider>
+
+    <section>
+      <h2>Differentiators</h2>
+      <p>Where others offer mere functionality, Vocalis delivers identity and dignity. It turns fragments into expressive speech—not just clarity, but character.</p>
+    </section>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Vocalis. All rights reserved.
+  </footer>
+
+  <script>
+    Vue.config.ignoredElements = [/^sl-/];
+    new Vue({
+      el: '#app',
+      data() {
+        return { email: '', submitted: false };
+      },
+      methods: {
+        joinWaitlist() {
+          if (!this.email) return;
+          console.log('Waitlist signup:', this.email);
+          this.submitted = true;
+          this.email = '';
+        }
+      },
+      mounted() {
+        document.getElementById('year').textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+</body>
+</html>
