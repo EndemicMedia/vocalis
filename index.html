@@ -52,126 +52,14 @@
     src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/shoelace.js"
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <style>
-    :root {
-      --accent-color: #c8a46b;
-    }
-    body {
-      margin: 0;
-      background: radial-gradient(circle at top left, #1a1a1a, #000);
-      color: #f5f5f5;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--accent-color); }
-    .logo-header {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-    }
-    .logo-header img {
-      height: 40px;
-    }
-    header {
-      text-align: center;
-      padding: 4rem 1rem 2rem;
-    }
-    .hero-image {
-      width: 100%;
-      max-width: 900px;
-      border-radius: 8px;
-      display: block;
-      margin: 0 auto 2rem;
-    }
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-    }
-    header p {
-      max-width: 600px;
-      margin: 0.5rem auto 2rem;
-      font-weight: 300;
-    }
-    section {
-      padding: 3rem 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .use-cases {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .illustrations {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    .illustrations figure {
-      margin: 0;
-    }
-    .illustrations img {
-      width: 100%;
-      border-radius: 8px;
-    }
-    .illustrations figcaption {
-      text-align: center;
-      margin-top: 0.5rem;
-      font-size: 0.875rem;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.875rem;
-      background: #0a0a0a;
-    }
-    form {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: center;
-      margin-top: 1rem;
-    }
-    sl-button::part(base) {
-      background: var(--accent-color);
-      color: #000;
-    }
-    sl-card::part(base) {
-      background: #111;
-      border: 1px solid #222;
-    }
-
-    @media (max-width: 600px) {
-      header {
-        padding: 2rem 1rem 1rem;
-      }
-      header h1 {
-        font-size: 2rem;
-      }
-      form {
-        flex-direction: column;
-        align-items: stretch;
-      }
-    }
-  </style>
 </head>
 <body>
   <main id="app">
-    <nav class="logo-header">
+    <nav>
       <img id="logo" alt="Vocalis logo" />
     </nav>
     <header>
-      <img id="hero-image" class="hero-image" alt="Illustration of AI-powered communication" />
+      <img id="hero-image" alt="Illustration of AI-powered communication" width="600" />
       <h1>Vocalis</h1>
       <p>AI-powered communication that turns fragments into fluent, personal expression.</p>
       <form @submit.prevent="joinWaitlist">
@@ -184,14 +72,7 @@
         ></sl-input>
         <sl-button variant="primary" type="submit">Join the Waitlist</sl-button>
       </form>
-      <sl-alert
-        v-if="submitted"
-        type="success"
-        open
-        duration="3000"
-        closable
-        style="max-width:300px;margin:1rem auto 0;"
-      >
+      <sl-alert v-if="submitted" type="success" open duration="3000" closable>
         Thanks! We'll be in touch.
       </sl-alert>
     </header>
@@ -214,34 +95,32 @@
 
     <section>
       <h2>Example Use Cases</h2>
-      <div class="use-cases">
-        <sl-card>
-          <strong slot="header">At a restaurant</strong>
-          <p>
-            <em>Input:</em> "want… water"<br>
-            <em>Output:</em> "Could I have a glass of water, please?"
-          </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">In a social setting</strong>
-          <p>
-            <em>Input:</em> "funny… dog vid… haha"<br>
-            <em>Output:</em> "That dog video cracked me up. Absolute chaos."
-          </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">In class or a meeting</strong>
-          <p>
-            <em>Input:</em> "don’t… agree… point"<br>
-            <em>Output:</em> "I don’t agree with that point. Here’s another perspective…"
-          </p>
-        </sl-card>
-      </div>
+      <sl-card>
+        <strong slot="header">At a restaurant</strong>
+        <p>
+          <em>Input:</em> "want… water"<br>
+          <em>Output:</em> "Could I have a glass of water, please?"
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">In a social setting</strong>
+        <p>
+          <em>Input:</em> "funny… dog vid… haha"<br>
+          <em>Output:</em> "That dog video cracked me up. Absolute chaos."
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">In class or a meeting</strong>
+        <p>
+          <em>Input:</em> "don’t… agree… point"<br>
+          <em>Output:</em> "I don’t agree with that point. Here’s another perspective…"
+        </p>
+      </sl-card>
     </section>
 
     <sl-divider></sl-divider>
 
-    <section class="illustrations">
+    <section>
       <h2>Visualizing Possibilities</h2>
       <figure>
         <img id="illustration-1" alt="Assistive communication illustration 1" />
@@ -261,49 +140,47 @@
 
     <section>
       <h2>Core Features</h2>
-      <div class="features">
-        <sl-card>
-          <strong slot="header">Fragment Expansion</strong>
-          <p>Convert incomplete speech or text into fluent, context-aware sentences.</p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">Style Personalization</strong>
-            <p>
-              Choose tones like casual, formal, or witty and Vocalis adapts to your personality.
-            </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">Multi-Modal Input</strong>
-            <p>
-              Voice, text shorthand, sketches, or pictograms—all become expressive sentences.
-            </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">Context Awareness</strong>
-            <p>
-              Understands settings—from restaurants to meetings—to tailor communication
-              automatically.
-            </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">Real-Time Output</strong>
-            <p>
-              Generates polished text and synthetic voice instantly with quick-swipe alternatives.
-            </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">Expressive Add-ons</strong>
-            <p>
-              Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.
-            </p>
-        </sl-card>
-        <sl-card>
-          <strong slot="header">Privacy First</strong>
-            <p>
-              On-device learning keeps your data secure while personalizing your experience.
-            </p>
-        </sl-card>
-      </div>
+      <sl-card>
+        <strong slot="header">Fragment Expansion</strong>
+        <p>Convert incomplete speech or text into fluent, context-aware sentences.</p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">Style Personalization</strong>
+        <p>
+          Choose tones like casual, formal, or witty and Vocalis adapts to your personality.
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">Multi-Modal Input</strong>
+        <p>
+          Voice, text shorthand, sketches, or pictograms—all become expressive sentences.
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">Context Awareness</strong>
+        <p>
+          Understands settings—from restaurants to meetings—to tailor communication
+          automatically.
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">Real-Time Output</strong>
+        <p>
+          Generates polished text and synthetic voice instantly with quick-swipe alternatives.
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">Expressive Add-ons</strong>
+        <p>
+          Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.
+        </p>
+      </sl-card>
+      <sl-card>
+        <strong slot="header">Privacy First</strong>
+        <p>
+          On-device learning keeps your data secure while personalizing your experience.
+        </p>
+      </sl-card>
     </section>
 
     <sl-divider></sl-divider>
@@ -316,59 +193,94 @@
       </p>
     </section>
     <section>
-      <h2>Assistive Communication for Everyone</h2>
-      <p>
-        Vocalis is an AI-powered augmentative and alternative communication (AAC) app for
-        speech disabilities including ALS, cerebral palsy, stroke, and apraxia.
-      </p>
-      <p>
-        This speech disability communication app turns fragments into fluent speech, giving
-        caregivers and therapists a modern AAC tool.
-      </p>
-      <p>
-        The ALS community and others benefit from a flexible AAC app that respects personal
-        style.
-      </p>
+      <sl-split-panel>
+        <div slot="start">
+          <h2>Assistive Communication for Everyone</h2>
+          <p>
+            Vocalis is an AI-powered augmentative and alternative communication (AAC) app for
+            speech disabilities including ALS, cerebral palsy, stroke, and apraxia.
+          </p>
+          <p>
+            This speech disability communication app turns fragments into fluent speech,
+            giving caregivers and therapists a modern AAC tool.
+          </p>
+          <p>
+            The ALS community and others benefit from a flexible AAC app that respects
+            personal style.
+          </p>
+        </div>
+        <div slot="end">
+          <img id="assistive-image" alt="People using AI communication in daily life" />
+        </div>
+      </sl-split-panel>
     </section>
 
     <section>
-      <h2>Market Opportunity</h2>
-      <p>
-        Over 40 million people worldwide rely on AAC tools, a market projected to surpass
-        $5 billion by 2030.
-      </p>
-      <p>
-        Vocalis targets this gap with an AI-first approach, unlocking new demand across
-        clinical, education, and consumer channels.
-      </p>
+      <sl-split-panel>
+        <div slot="start">
+          <h2>Market Opportunity</h2>
+          <p>
+            Over 40 million people worldwide rely on AAC tools, a market projected to surpass
+            $5 billion by 2030.
+          </p>
+          <p>
+            Vocalis targets this gap with an AI-first approach, unlocking new demand across
+            clinical, education, and consumer channels.
+          </p>
+        </div>
+        <div slot="end">
+          <img id="market-image" alt="Chart showing growth of assistive communication market" />
+        </div>
+      </sl-split-panel>
     </section>
 
     <section>
-      <h2>Business Model</h2>
-      <p>
-        Freemium access lowers barriers while tiered subscriptions offer advanced voices,
-        analytics, and caregiver collaboration.
-      </p>
-      <p>
-        Licensing partnerships with clinics and device makers compound recurring revenue
-        streams.
-      </p>
+      <sl-split-panel>
+        <div slot="start">
+          <h2>Business Model</h2>
+          <p>
+            Freemium access lowers barriers while tiered subscriptions offer advanced
+            voices, analytics, and caregiver collaboration.
+          </p>
+          <p>
+            Licensing partnerships with clinics and device makers compound recurring
+            revenue streams.
+          </p>
+        </div>
+        <div slot="end">
+          <img id="business-image" alt="Diagram of subscription tiers and partnerships" />
+        </div>
+      </sl-split-panel>
     </section>
 
     <section>
-      <h2>Roadmap</h2>
-      <p>
-        Beta launches with core text-to-speech in Q1 2025, followed by gesture input,
-        multilingual voices, and offline support.
-      </p>
+      <sl-split-panel>
+        <div slot="start">
+          <h2>Roadmap</h2>
+          <p>
+            Beta launches with core text-to-speech in Q1 2025, followed by gesture input,
+            multilingual voices, and offline support.
+          </p>
+        </div>
+        <div slot="end">
+          <img id="roadmap-image" alt="Timeline of AI communication app milestones" />
+        </div>
+      </sl-split-panel>
     </section>
 
     <section>
-      <h2>Team</h2>
-      <p>
-        Built by speech-language pathologists and AI researchers, the team blends clinical
-        insight with scalable engineering.
-      </p>
+      <sl-split-panel>
+        <div slot="start">
+          <h2>Team</h2>
+          <p>
+            Built by speech-language pathologists and AI researchers, the team blends
+            clinical insight with scalable engineering.
+          </p>
+        </div>
+        <div slot="end">
+          <img id="team-image" alt="Team of clinicians and researchers collaborating" />
+        </div>
+      </sl-split-panel>
     </section>
   </main>
 
@@ -376,7 +288,7 @@
     © <span id="year"></span> Vocalis. All rights reserved.
   </footer>
 
-  <script>
+  <script type="module">
     Vue.config.ignoredElements = [/^sl-/];
     new Vue({
       el: '#app',
@@ -392,48 +304,67 @@
         }
       },
       mounted() {
-        document.getElementById('year').textContent = new Date().getFullYear();
+        document.getElementById('year').textContent =
+          new Date().getFullYear();
         const style = 'cohesive vibrant digital art style';
-        const logoPrompt = `minimal logo for Vocalis, ${style}`;
-        const logoUrl =
-          'https://image.pollinations.ai/prompt/' +
-          encodeURIComponent(logoPrompt) +
-          '?width=128&height=128&nologo=true';
-        fetch(logoUrl, { referrer: 'https://endemicmedia.github.io/' })
-          .then(r => r.blob())
-          .then(b => {
-            document.getElementById('logo').src = URL.createObjectURL(b);
-          })
-          .catch(err => console.error('Logo failed', err));
-        const heroPrompt =
-          `futuristic illustration of accessible communication empowering speech, ${style}`;
-        const heroUrl =
-          'https://image.pollinations.ai/prompt/' +
-          encodeURIComponent(heroPrompt) +
-          '?width=1200&height=600&nologo=true';
-        fetch(heroUrl, { referrer: 'https://endemicmedia.github.io/' })
-          .then(r => r.blob())
-          .then(b => {
-            document.getElementById('hero-image').src = URL.createObjectURL(b);
-          })
-          .catch(err => console.error('Hero image failed', err));
-        const prompts = [
-          'person using AI to communicate at a restaurant',
-          'friends chatting with assistive speech technology',
-          'student expressing ideas with AI aid in classroom'
+        const images = [
+          { id: 'logo', prompt: 'minimal logo for Vocalis', width: 128, height: 128 },
+          {
+            id: 'hero-image',
+            prompt:
+              'futuristic illustration of accessible communication empowering speech',
+            width: 1200,
+            height: 600
+          },
+          {
+            id: 'illustration-1',
+            prompt: 'person using AI to communicate at a restaurant'
+          },
+          {
+            id: 'illustration-2',
+            prompt: 'friends chatting with assistive speech technology'
+          },
+          {
+            id: 'illustration-3',
+            prompt: 'student expressing ideas with AI aid in classroom'
+          },
+          {
+            id: 'assistive-image',
+            prompt:
+              'people with speech disabilities using ai communication app in daily life'
+          },
+          {
+            id: 'market-image',
+            prompt:
+              'growing global market for assistive communication technology with upward chart'
+          },
+          {
+            id: 'business-image',
+            prompt:
+              'tiered subscriptions and partnerships building revenue for accessibility tools'
+          },
+          {
+            id: 'roadmap-image',
+            prompt:
+              'timeline infographic of ai communication app development milestones'
+          },
+          {
+            id: 'team-image',
+            prompt:
+              'diverse team of clinicians and ai researchers collaborating on speech technology'
+          }
         ];
-        prompts.forEach((p, i) => {
+        images.forEach(({ id, prompt, width = 512, height = 512 }) => {
           const url =
             'https://image.pollinations.ai/prompt/' +
-            encodeURIComponent(`${p}, ${style}`) +
-            '?width=512&height=512&nologo=true';
+            encodeURIComponent(`${prompt}, ${style}`) +
+            `?width=${width}&height=${height}&nologo=true`;
           fetch(url, { referrer: 'https://endemicmedia.github.io/' })
             .then(r => r.blob())
             .then(b => {
-              document.getElementById(`illustration-${i + 1}`).src =
-                URL.createObjectURL(b);
+              document.getElementById(id).src = URL.createObjectURL(b);
             })
-            .catch(err => console.error('Illustration failed', i, err));
+            .catch(err => console.error('Image failed', id, err));
         });
       }
     });
