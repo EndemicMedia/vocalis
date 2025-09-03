@@ -23,9 +23,10 @@ These instructions apply to the entire repository.
 - Keep DOM manipulation minimal and avoid polluting the global scope.
 
 ## Workflow
-1. After modifying files, run `npm test` to ensure everything passes.
-2. Document rationale in comments where code may be non-obvious.
-3. Keep JavaScript modular and well-documented.
+1. Update or add tests whenever code changes to keep coverage current.
+2. After modifying files, run `npm test` to ensure everything passes.
+3. Document rationale in comments where code may be non-obvious.
+4. Keep JavaScript modular and well-documented.
 
 ## Commit Standards
 - Commit messages should be in present tense and imperative mood (e.g., "Add
