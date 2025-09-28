@@ -26,6 +26,7 @@
     name="twitter:description"
     content="AI-powered augmentative and alternative communication app for expressive speech."
   />
+  <meta name="color-scheme" content="light dark" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -43,13 +44,94 @@
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
   >
+  <style>
+    :root {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background-color: var(--sl-color-neutral-0);
+      color: var(--sl-color-neutral-900);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    body.sl-theme-dark {
+      background-color: var(--sl-color-neutral-950);
+      color: var(--sl-color-neutral-0);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 1.5rem 4rem;
+    }
+
+    header {
+      display: grid;
+      gap: 1rem;
+      justify-items: center;
+      text-align: center;
+    }
+
+    header img {
+      border-radius: 1rem;
+      max-width: 100%;
+      height: auto;
+    }
+
+    section {
+      display: grid;
+      gap: 1rem;
+    }
+
+    footer {
+      padding: 2rem 1.5rem;
+      text-align: center;
+      background-color: var(--sl-color-neutral-100);
+      color: var(--sl-color-neutral-900);
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    body.sl-theme-dark footer {
+      background-color: var(--sl-color-neutral-900);
+      color: var(--sl-color-neutral-0);
+    }
+
+    @media (min-width: 768px) {
+      header {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        text-align: left;
+      }
+
+      header form {
+        justify-self: start;
+      }
+    }
+  </style>
+  <!-- Load base styles before applying the dark theme -->
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/themes/dark.css"
+    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/cdn/themes/light.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/cdn/themes/dark.css"
   />
   <script
     type="module"
-    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/dist/shoelace.js"
+    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/cdn/shoelace.js"
   ></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
@@ -57,6 +139,15 @@
   <main id="app">
     <nav>
       <img id="logo" alt="Vocalis logo" />
+      <sl-button
+        id="theme-toggle"
+        variant="text"
+        size="small"
+        type="button"
+        @click="toggleTheme"
+      >
+        {{ themeToggleLabel }}
+      </sl-button>
     </nav>
     <header>
       <img id="hero-image" alt="Illustration of AI-powered communication" width="600" />
@@ -64,15 +155,25 @@
       <p>AI-powered communication that turns fragments into fluent, personal expression.</p>
       <form @submit.prevent="joinWaitlist">
         <sl-input
+          name="email"
+          label="Email address"
           placeholder="Email address"
           type="email"
           :value="email"
           @input="email = $event.target.value"
           size="medium"
+          required
         ></sl-input>
         <sl-button variant="primary" type="submit">Join the Waitlist</sl-button>
       </form>
-      <sl-alert v-if="submitted" type="success" open duration="3000" closable>
+      <sl-alert
+        v-if="submitted"
+        type="success"
+        open
+        duration="3000"
+        closable
+        @sl-after-hide="submitted = false"
+      >
         Thanks! We'll be in touch.
       </sl-alert>
     </header>
@@ -293,19 +394,66 @@
     new Vue({
       el: '#app',
       data() {
-        return { email: '', submitted: false };
+        return {
+          email: '',
+          submitted: false,
+          theme: 'light',
+          hasManualTheme: false,
+          prefersDarkQuery: null
+        };
+      },
+      computed: {
+        themeToggleLabel() {
+          return this.theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
+        }
       },
       methods: {
         joinWaitlist() {
-          if (!this.email) return;
-          console.log('Waitlist signup:', this.email);
+          const value = this.email.trim();
+          if (!value) return;
+          console.log('Waitlist signup:', value);
           this.submitted = true;
           this.email = '';
+        },
+        applyTheme(theme, { persist = false } = {}) {
+          this.theme = theme;
+          document.body.classList.toggle('sl-theme-dark', theme === 'dark');
+          document.body.classList.toggle('sl-theme-light', theme === 'light');
+          document.body.dataset.theme = theme;
+          document.documentElement.style.colorScheme =
+            theme === 'dark' ? 'dark light' : 'light dark';
+          if (persist) {
+            localStorage.setItem('vocalis-theme', theme);
+            this.hasManualTheme = true;
+          }
+        },
+        toggleTheme() {
+          const next = this.theme === 'dark' ? 'light' : 'dark';
+          this.applyTheme(next, { persist: true });
+        },
+        handlePrefChange(event) {
+          if (this.hasManualTheme) return;
+          this.applyTheme(event.matches ? 'dark' : 'light');
         }
       },
       mounted() {
         document.getElementById('year').textContent =
           new Date().getFullYear();
+        if (window.matchMedia) {
+          this.prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        }
+        const storedTheme = localStorage.getItem('vocalis-theme');
+        if (storedTheme === 'dark' || storedTheme === 'light') {
+          this.hasManualTheme = true;
+          this.applyTheme(storedTheme);
+        } else if (this.prefersDarkQuery) {
+          this.applyTheme(this.prefersDarkQuery.matches ? 'dark' : 'light');
+        } else {
+          this.applyTheme('light');
+        }
+        if (this.prefersDarkQuery) {
+          this.prefersDarkQuery.addEventListener('change', this.handlePrefChange);
+        }
         const style = 'cohesive vibrant digital art style';
         const images = [
           { id: 'logo', prompt: 'minimal logo for Vocalis', width: 128, height: 128 },
@@ -366,6 +514,11 @@
             })
             .catch(err => console.error('Image failed', id, err));
         });
+      },
+      beforeDestroy() {
+        if (this.prefersDarkQuery) {
+          this.prefersDarkQuery.removeEventListener('change', this.handlePrefChange);
+        }
       }
     });
   </script>
