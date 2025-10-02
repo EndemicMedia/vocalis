@@ -10,8 +10,7 @@
   <link rel="canonical" href="https://vocalis.app/" />
   <meta
     name="keywords"
-    content="augmentative communication apps, AAC app, speech disability communication,
-    ALS communication app"
+    content="augmentative communication apps, AAC app, speech disability communication, ALS communication app"
   />
   <meta property="og:title" content="Vocalis – From Fragments to Full Expression" />
   <meta
@@ -38,489 +37,581 @@
     }
   </script>
   <title>Vocalis – From Fragments to Full Expression</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
     rel="stylesheet"
-  >
+  />
+  <link
+    rel="stylesheet"
+    id="tailwind-cdn"
+    href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/tailwind.min.css"
+    crossorigin="anonymous"
+  />
   <style>
     :root {
       font-family: 'Poppins', sans-serif;
     }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background-color: var(--sl-color-neutral-0);
-      color: var(--sl-color-neutral-900);
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    body.sl-theme-dark {
-      background-color: var(--sl-color-neutral-950);
-      color: var(--sl-color-neutral-0);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem;
-      gap: 1.5rem;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1.5rem 4rem;
-    }
-
-    header {
-      display: grid;
-      gap: 1rem;
-      justify-items: center;
-      text-align: center;
-    }
-
-    header img {
-      border-radius: 1rem;
-      max-width: 100%;
-      height: auto;
-    }
-
-    section {
-      display: grid;
-      gap: 1rem;
-    }
-
-    footer {
-      padding: 2rem 1.5rem;
-      text-align: center;
-      background-color: var(--sl-color-neutral-100);
-      color: var(--sl-color-neutral-900);
-      transition: background-color 0.2s ease, color 0.2s ease;
-    }
-
-    body.sl-theme-dark footer {
-      background-color: var(--sl-color-neutral-900);
-      color: var(--sl-color-neutral-0);
-    }
-
-    @media (min-width: 768px) {
-      header {
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        text-align: left;
-      }
-
-      header form {
-        justify-self: start;
-      }
-    }
   </style>
-  <!-- Load base styles before applying the dark theme -->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/cdn/themes/light.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/cdn/themes/dark.css"
-  />
-  <script
-    type="module"
-    src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.10.0/cdn/shoelace.js"
-  ></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
-<body>
-  <main id="app">
-    <nav>
-      <img id="logo" alt="Vocalis logo" />
-      <sl-button
+<body
+  class="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100"
+>
+  <main
+    id="page"
+    class="mx-auto flex min-h-screen max-w-6xl flex-col gap-16 px-6 pb-20 pt-12 sm:px-10"
+  >
+    <nav
+      class="flex flex-col gap-4 border-b border-slate-200 pb-6 sm:flex-row sm:items-center sm:justify-between dark:border-slate-800"
+    >
+      <div class="flex items-center gap-3">
+        <img
+          id="logo"
+          alt="Vocalis logo"
+          class="h-12 w-12 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg dark:border-slate-700 dark:bg-slate-900"
+        />
+        <span class="text-lg font-semibold tracking-tight">Vocalis</span>
+      </div>
+      <button
         id="theme-toggle"
-        variant="text"
-        size="small"
         type="button"
-        @click="toggleTheme"
+        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-indigo-500 hover:text-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
       >
-        {{ themeToggleLabel }}
-      </sl-button>
+        Switch to Dark Mode
+      </button>
     </nav>
-    <header>
-      <img id="hero-image" alt="Illustration of AI-powered communication" width="600" />
-      <h1>Vocalis</h1>
-      <p>AI-powered communication that turns fragments into fluent, personal expression.</p>
-      <form @submit.prevent="joinWaitlist">
-        <sl-input
-          name="email"
-          label="Email address"
-          placeholder="Email address"
-          type="email"
-          :value="email"
-          @input="email = $event.target.value"
-          size="medium"
-          required
-        ></sl-input>
-        <sl-button variant="primary" type="submit">Join the Waitlist</sl-button>
-      </form>
-      <sl-alert
-        v-if="submitted"
-        type="success"
-        open
-        duration="3000"
-        closable
-        @sl-after-hide="submitted = false"
-      >
-        Thanks! We'll be in touch.
-      </sl-alert>
+
+    <header class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-6 text-center md:text-left">
+        <span
+          class="inline-flex items-center gap-2 rounded-full bg-indigo-100 px-4 py-1 text-sm font-medium text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200"
+        >
+          AI-powered AAC for expressive speech
+        </span>
+        <h1 class="text-4xl font-semibold tracking-tight sm:text-5xl">Vocalis</h1>
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+          AI-powered communication that turns fragments into fluent, personal expression.
+        </p>
+        <form
+          id="waitlist-form"
+          class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
+        >
+          <label class="sr-only" for="email">Email address</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            placeholder="Email address"
+            class="w-full rounded-full border border-slate-300 bg-white px-5 py-3 text-base text-slate-900 placeholder:text-slate-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400"
+          />
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+          >
+            Join the Waitlist
+          </button>
+        </form>
+        <div
+          id="waitlist-success"
+          role="status"
+          aria-live="polite"
+          hidden
+          class="hidden rounded-3xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-medium text-emerald-700 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200"
+        >
+          Thanks! We'll be in touch.
+        </div>
+      </div>
+      <img
+        id="hero-image"
+        alt="Illustration of AI-powered communication"
+        width="600"
+        class="mx-auto max-h-[420px] w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+      />
     </header>
 
-    <section>
-      <h2>The Problem</h2>
-      <p>
-        Millions of people with verbal disabilities—from cerebral palsy to ALS—face tools that
-        reduce them to rigid boards or robotic phrases. Communication becomes functional, but
-        never truly human.
-      </p>
-      <h2>The Solution</h2>
-      <p>
-        Vocalis transforms partial speech, text, or sketches into natural sentences in real time,
-        preserving the user's tone, style, and personality.
-      </p>
+    <section class="grid gap-8 md:grid-cols-2 md:items-center">
+      <div class="space-y-6">
+        <h2 class="text-2xl font-semibold tracking-tight">The Problem</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Millions of people with verbal disabilities—from cerebral palsy to ALS—face tools that
+          reduce them to rigid boards or robotic phrases. Communication becomes functional, but
+          never truly human.
+        </p>
+        <h2 class="text-2xl font-semibold tracking-tight">The Solution</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Vocalis transforms partial speech, text, or sketches into natural sentences in real time,
+          preserving the user's tone, style, and personality.
+        </p>
+      </div>
+      <div
+        class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg dark:border-slate-800 dark:bg-slate-900/80"
+      >
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Why it matters</h3>
+        <p class="mt-4 text-slate-600 dark:text-slate-300">
+          People deserve more than basic speech output. Vocalis delivers identity, nuance, and
+          connection from the first conversation.
+        </p>
+      </div>
     </section>
 
-    <sl-divider></sl-divider>
+    <hr class="border-slate-200 dark:border-slate-800" />
 
-    <section>
-      <h2>Example Use Cases</h2>
-      <sl-card>
-        <strong slot="header">At a restaurant</strong>
-        <p>
-          <em>Input:</em> "want… water"<br>
-          <em>Output:</em> "Could I have a glass of water, please?"
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">In a social setting</strong>
-        <p>
-          <em>Input:</em> "funny… dog vid… haha"<br>
-          <em>Output:</em> "That dog video cracked me up. Absolute chaos."
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">In class or a meeting</strong>
-        <p>
-          <em>Input:</em> "don’t… agree… point"<br>
-          <em>Output:</em> "I don’t agree with that point. Here’s another perspective…"
-        </p>
-      </sl-card>
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold tracking-tight">Example Use Cases</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">At a restaurant</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            <em>Input:</em> "want… water"<br />
+            <em>Output:</em> "Could I have a glass of water, please?"
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">In a social setting</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            <em>Input:</em> "funny… dog vid… haha"<br />
+            <em>Output:</em> "That dog video cracked me up. Absolute chaos."
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">In class or a meeting</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            <em>Input:</em> "don’t… agree… point"<br />
+            <em>Output:</em> "I don’t agree with that point. Here’s another perspective…"
+          </p>
+        </article>
+      </div>
     </section>
 
-    <sl-divider></sl-divider>
+    <hr class="border-slate-200 dark:border-slate-800" />
 
-    <section>
-      <h2>Visualizing Possibilities</h2>
-      <figure>
-        <img id="illustration-1" alt="Assistive communication illustration 1" />
-        <figcaption>Ordering with confidence in a restaurant.</figcaption>
-      </figure>
-      <figure>
-        <img id="illustration-2" alt="Assistive communication illustration 2" />
-        <figcaption>Sharing laughs with friends.</figcaption>
-      </figure>
-      <figure>
-        <img id="illustration-3" alt="Assistive communication illustration 3" />
-        <figcaption>Expressing ideas in class.</figcaption>
-      </figure>
+    <section class="space-y-10">
+      <h2 class="text-2xl font-semibold tracking-tight">Visualizing Possibilities</h2>
+      <div class="grid gap-8 md:grid-cols-3">
+        <figure
+          class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <img
+            id="illustration-1"
+            alt="Assistive communication illustration 1"
+            class="h-48 w-full rounded-2xl object-cover"
+          />
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300">
+            Ordering with confidence in a restaurant.
+          </figcaption>
+        </figure>
+        <figure
+          class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <img
+            id="illustration-2"
+            alt="Assistive communication illustration 2"
+            class="h-48 w-full rounded-2xl object-cover"
+          />
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300">
+            Sharing laughs with friends.
+          </figcaption>
+        </figure>
+        <figure
+          class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <img
+            id="illustration-3"
+            alt="Assistive communication illustration 3"
+            class="h-48 w-full rounded-2xl object-cover"
+          />
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300">
+            Expressing ideas in class.
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
-    <sl-divider></sl-divider>
+    <hr class="border-slate-200 dark:border-slate-800" />
 
-    <section>
-      <h2>Core Features</h2>
-      <sl-card>
-        <strong slot="header">Fragment Expansion</strong>
-        <p>Convert incomplete speech or text into fluent, context-aware sentences.</p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">Style Personalization</strong>
-        <p>
-          Choose tones like casual, formal, or witty and Vocalis adapts to your personality.
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">Multi-Modal Input</strong>
-        <p>
-          Voice, text shorthand, sketches, or pictograms—all become expressive sentences.
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">Context Awareness</strong>
-        <p>
-          Understands settings—from restaurants to meetings—to tailor communication
-          automatically.
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">Real-Time Output</strong>
-        <p>
-          Generates polished text and synthetic voice instantly with quick-swipe alternatives.
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">Expressive Add-ons</strong>
-        <p>
-          Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.
-        </p>
-      </sl-card>
-      <sl-card>
-        <strong slot="header">Privacy First</strong>
-        <p>
-          On-device learning keeps your data secure while personalizing your experience.
-        </p>
-      </sl-card>
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold tracking-tight">Core Features</h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Fragment Expansion</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Convert incomplete speech or text into fluent, context-aware sentences.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Style Personalization</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Choose tones like casual, formal, or witty and Vocalis adapts to your personality.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Multi-Modal Input</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Voice, text shorthand, sketches, or pictograms—all become expressive sentences.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Context Awareness</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Understands settings—from restaurants to meetings—to tailor communication automatically.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Real-Time Output</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Generates polished text and synthetic voice instantly with quick-swipe alternatives.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Expressive Add-ons</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold">Privacy First</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+            On-device learning keeps your data secure while personalizing your experience.
+          </p>
+        </article>
+      </div>
     </section>
 
-    <sl-divider></sl-divider>
+    <hr class="border-slate-200 dark:border-slate-800" />
 
-    <section>
-      <h2>Differentiators</h2>
-      <p>
+    <section class="space-y-6">
+      <h2 class="text-2xl font-semibold tracking-tight">Differentiators</h2>
+      <p class="max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
         Where others offer mere functionality, Vocalis delivers identity and dignity. It turns
         fragments into expressive speech—not just clarity, but character.
       </p>
     </section>
-    <section>
-      <sl-split-panel>
-        <div slot="start">
-          <h2>Assistive Communication for Everyone</h2>
-          <p>
-            Vocalis is an AI-powered augmentative and alternative communication (AAC) app for
-            speech disabilities including ALS, cerebral palsy, stroke, and apraxia.
-          </p>
-          <p>
-            This speech disability communication app turns fragments into fluent speech,
-            giving caregivers and therapists a modern AAC tool.
-          </p>
-          <p>
-            The ALS community and others benefit from a flexible AAC app that respects
-            personal style.
-          </p>
-        </div>
-        <div slot="end">
-          <img id="assistive-image" alt="People using AI communication in daily life" />
-        </div>
-      </sl-split-panel>
+
+    <section class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight">Assistive Communication for Everyone</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Vocalis is an AI-powered augmentative and alternative communication (AAC) app for speech
+          disabilities including ALS, cerebral palsy, stroke, and apraxia.
+        </p>
+        <p class="text-slate-600 dark:text-slate-300">
+          This speech disability communication app turns fragments into fluent speech, giving
+          caregivers and therapists a modern AAC tool.
+        </p>
+        <p class="text-slate-600 dark:text-slate-300">
+          The ALS community and others benefit from a flexible AAC app that respects personal style.
+        </p>
+      </div>
+      <img
+        id="assistive-image"
+        alt="People using AI communication in daily life"
+        class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+      />
     </section>
 
-    <section>
-      <sl-split-panel>
-        <div slot="start">
-          <h2>Market Opportunity</h2>
-          <p>
-            Over 40 million people worldwide rely on AAC tools, a market projected to surpass
-            $5 billion by 2030.
-          </p>
-          <p>
-            Vocalis targets this gap with an AI-first approach, unlocking new demand across
-            clinical, education, and consumer channels.
-          </p>
-        </div>
-        <div slot="end">
-          <img id="market-image" alt="Chart showing growth of assistive communication market" />
-        </div>
-      </sl-split-panel>
+    <section class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight">Market Opportunity</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Over 40 million people worldwide rely on AAC tools, a market projected to surpass $5 billion
+          by 2030.
+        </p>
+        <p class="text-slate-600 dark:text-slate-300">
+          Vocalis targets this gap with an AI-first approach, unlocking new demand across clinical,
+          education, and consumer channels.
+        </p>
+      </div>
+      <img
+        id="market-image"
+        alt="Chart showing growth of assistive communication market"
+        class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+      />
     </section>
 
-    <section>
-      <sl-split-panel>
-        <div slot="start">
-          <h2>Business Model</h2>
-          <p>
-            Freemium access lowers barriers while tiered subscriptions offer advanced
-            voices, analytics, and caregiver collaboration.
-          </p>
-          <p>
-            Licensing partnerships with clinics and device makers compound recurring
-            revenue streams.
-          </p>
-        </div>
-        <div slot="end">
-          <img id="business-image" alt="Diagram of subscription tiers and partnerships" />
-        </div>
-      </sl-split-panel>
+    <section class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight">Business Model</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Freemium access lowers barriers while tiered subscriptions offer advanced voices,
+          analytics, and caregiver collaboration.
+        </p>
+        <p class="text-slate-600 dark:text-slate-300">
+          Licensing partnerships with clinics and device makers compound recurring revenue streams.
+        </p>
+      </div>
+      <img
+        id="business-image"
+        alt="Diagram of subscription tiers and partnerships"
+        class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+      />
     </section>
 
-    <section>
-      <sl-split-panel>
-        <div slot="start">
-          <h2>Roadmap</h2>
-          <p>
-            Beta launches with core text-to-speech in Q1 2025, followed by gesture input,
-            multilingual voices, and offline support.
-          </p>
-        </div>
-        <div slot="end">
-          <img id="roadmap-image" alt="Timeline of AI communication app milestones" />
-        </div>
-      </sl-split-panel>
+    <section class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight">Roadmap</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Beta launches with core text-to-speech in Q1 2025, followed by gesture input, multilingual
+          voices, and offline support.
+        </p>
+      </div>
+      <img
+        id="roadmap-image"
+        alt="Timeline of AI communication app milestones"
+        class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+      />
     </section>
 
-    <section>
-      <sl-split-panel>
-        <div slot="start">
-          <h2>Team</h2>
-          <p>
-            Built by speech-language pathologists and AI researchers, the team blends
-            clinical insight with scalable engineering.
-          </p>
-        </div>
-        <div slot="end">
-          <img id="team-image" alt="Team of clinicians and researchers collaborating" />
-        </div>
-      </sl-split-panel>
+    <section class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight">Team</h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Built by speech-language pathologists and AI researchers, the team blends clinical insight
+          with scalable engineering.
+        </p>
+      </div>
+      <img
+        id="team-image"
+        alt="Team of clinicians and researchers collaborating"
+        class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+      />
     </section>
   </main>
 
-  <footer>
+  <footer
+    class="border-t border-slate-200 bg-white py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
+  >
     © <span id="year"></span> Vocalis. All rights reserved.
   </footer>
 
   <script type="module">
-    Vue.config.ignoredElements = [/^sl-/];
-    new Vue({
-      el: '#app',
-      data() {
-        return {
-          email: '',
-          submitted: false,
-          theme: 'light',
-          hasManualTheme: false,
-          prefersDarkQuery: null
-        };
-      },
-      computed: {
-        themeToggleLabel() {
-          return this.theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
-        }
-      },
-      methods: {
-        joinWaitlist() {
-          const value = this.email.trim();
-          if (!value) return;
-          console.log('Waitlist signup:', value);
-          this.submitted = true;
-          this.email = '';
-        },
-        applyTheme(theme, { persist = false } = {}) {
-          this.theme = theme;
-          document.body.classList.toggle('sl-theme-dark', theme === 'dark');
-          document.body.classList.toggle('sl-theme-light', theme === 'light');
-          document.body.dataset.theme = theme;
-          document.documentElement.style.colorScheme =
-            theme === 'dark' ? 'dark light' : 'light dark';
-          if (persist) {
-            localStorage.setItem('vocalis-theme', theme);
-            this.hasManualTheme = true;
-          }
-        },
-        toggleTheme() {
-          const next = this.theme === 'dark' ? 'light' : 'dark';
-          this.applyTheme(next, { persist: true });
-        },
-        handlePrefChange(event) {
-          if (this.hasManualTheme) return;
-          this.applyTheme(event.matches ? 'dark' : 'light');
-        }
-      },
-      mounted() {
-        document.getElementById('year').textContent =
-          new Date().getFullYear();
-        if (window.matchMedia) {
-          this.prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        }
-        const storedTheme = localStorage.getItem('vocalis-theme');
-        if (storedTheme === 'dark' || storedTheme === 'light') {
-          this.hasManualTheme = true;
-          this.applyTheme(storedTheme);
-        } else if (this.prefersDarkQuery) {
-          this.applyTheme(this.prefersDarkQuery.matches ? 'dark' : 'light');
-        } else {
-          this.applyTheme('light');
-        }
-        if (this.prefersDarkQuery) {
-          this.prefersDarkQuery.addEventListener('change', this.handlePrefChange);
-        }
-        const style = 'cohesive vibrant digital art style';
-        const images = [
-          { id: 'logo', prompt: 'minimal logo for Vocalis', width: 128, height: 128 },
-          {
-            id: 'hero-image',
-            prompt:
-              'futuristic illustration of accessible communication empowering speech',
-            width: 1200,
-            height: 600
-          },
-          {
-            id: 'illustration-1',
-            prompt: 'person using AI to communicate at a restaurant'
-          },
-          {
-            id: 'illustration-2',
-            prompt: 'friends chatting with assistive speech technology'
-          },
-          {
-            id: 'illustration-3',
-            prompt: 'student expressing ideas with AI aid in classroom'
-          },
-          {
-            id: 'assistive-image',
-            prompt:
-              'people with speech disabilities using ai communication app in daily life'
-          },
-          {
-            id: 'market-image',
-            prompt:
-              'growing global market for assistive communication technology with upward chart'
-          },
-          {
-            id: 'business-image',
-            prompt:
-              'tiered subscriptions and partnerships building revenue for accessibility tools'
-          },
-          {
-            id: 'roadmap-image',
-            prompt:
-              'timeline infographic of ai communication app development milestones'
-          },
-          {
-            id: 'team-image',
-            prompt:
-              'diverse team of clinicians and ai researchers collaborating on speech technology'
-          }
-        ];
-        images.forEach(({ id, prompt, width = 512, height = 512 }) => {
-          const url =
-            'https://image.pollinations.ai/prompt/' +
-            encodeURIComponent(`${prompt}, ${style}`) +
-            `?width=${width}&height=${height}&nologo=true`;
-          fetch(url, { referrer: 'https://endemicmedia.github.io/' })
-            .then(r => r.blob())
-            .then(b => {
-              document.getElementById(id).src = URL.createObjectURL(b);
-            })
-            .catch(err => console.error('Image failed', id, err));
-        });
-      },
-      beforeDestroy() {
-        if (this.prefersDarkQuery) {
-          this.prefersDarkQuery.removeEventListener('change', this.handlePrefChange);
-        }
+    const doc = document;
+    const root = doc.documentElement;
+    const body = doc.body;
+    const themeToggle = doc.getElementById('theme-toggle');
+    const emailInput = doc.getElementById('email');
+    const form = doc.getElementById('waitlist-form');
+    const successBanner = doc.getElementById('waitlist-success');
+    const themeLabels = {
+      light: 'Switch to Dark Mode',
+      dark: 'Switch to Light Mode'
+    };
+
+    let theme = 'light';
+    let hasManualTheme = false;
+    let prefersDarkQuery = null;
+    let hideSuccessTimeout = null;
+
+    function updateToggleLabel(currentTheme) {
+      if (themeToggle) {
+        themeToggle.textContent = themeLabels[currentTheme];
       }
-    });
+    }
+
+    function applyTheme(nextTheme, { persist = false } = {}) {
+      theme = nextTheme;
+      root.classList.toggle('dark', nextTheme === 'dark');
+      body.dataset.theme = nextTheme;
+      root.dataset.theme = nextTheme;
+      root.style.colorScheme = nextTheme === 'dark' ? 'dark light' : 'light dark';
+      updateToggleLabel(nextTheme === 'dark' ? 'dark' : 'light');
+      if (persist) {
+        localStorage.setItem('vocalis-theme', nextTheme);
+        hasManualTheme = true;
+      }
+    }
+
+    function toggleTheme() {
+      const nextTheme = theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme, { persist: true });
+    }
+
+    function showSuccess() {
+      if (!successBanner) return;
+      successBanner.hidden = false;
+      successBanner.classList.remove('hidden');
+      clearTimeout(hideSuccessTimeout);
+      hideSuccessTimeout = window.setTimeout(() => {
+        successBanner.hidden = true;
+        successBanner.classList.add('hidden');
+      }, 3000);
+    }
+
+    function initTheme() {
+      if (window.matchMedia) {
+        prefersDarkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      }
+      const stored = localStorage.getItem('vocalis-theme');
+      if (stored === 'dark' || stored === 'light') {
+        hasManualTheme = true;
+        applyTheme(stored);
+      } else if (prefersDarkQuery) {
+        applyTheme(prefersDarkQuery.matches ? 'dark' : 'light');
+      } else {
+        applyTheme('light');
+      }
+      if (prefersDarkQuery) {
+        prefersDarkQuery.addEventListener('change', event => {
+          if (!hasManualTheme) {
+            applyTheme(event.matches ? 'dark' : 'light');
+          }
+        });
+      }
+    }
+
+    function initForm() {
+      if (!form) return;
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        const value = emailInput.value.trim();
+        if (!value) return;
+        console.log('Waitlist signup:', value);
+        emailInput.value = '';
+        showSuccess();
+      });
+    }
+
+    function initThemeToggle() {
+      if (!themeToggle) return;
+      themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    function loadDynamicImages() {
+      const styleKeywords = [
+        'Minimalist, modern illustration',
+        'tall aspect ratio poster aesthetic',
+        'soft gradients and airy negative space',
+        'precise clean lines',
+        'inclusive human-centered design',
+        'cohesive pastel palette',
+        'flat vector artistry',
+        'subtle paper grain texture',
+        'gentle diffused lighting',
+        'elegant typography accents'
+      ].join(', ');
+      const images = [
+        {
+          id: 'logo',
+          prompt: 'abstract speech wave logo representing Vocalis accessibility',
+          width: 128,
+          height: 128
+        },
+        {
+          id: 'hero-image',
+          prompt: 'people communicating confidently with assistive ai speech technology',
+          width: 1200,
+          height: 600
+        },
+        {
+          id: 'illustration-1',
+          prompt: 'diners assisted by ai communication device placing an order with ease'
+        },
+        {
+          id: 'illustration-2',
+          prompt: 'friends laughing together while using collaborative assistive speech tools'
+        },
+        {
+          id: 'illustration-3',
+          prompt: 'student presenting ideas in classroom supported by ai accessibility app'
+        },
+        {
+          id: 'assistive-image',
+          prompt: 'diverse people using accessible ai communication app throughout daily routines'
+        },
+        {
+          id: 'market-image',
+          prompt: 'global market growth chart for assistive communication innovation'
+        },
+        {
+          id: 'business-image',
+          prompt: 'subscription tiers and partnerships powering accessibility business model'
+        },
+        {
+          id: 'roadmap-image',
+          prompt: 'timeline roadmap of ai communication app milestones and launches'
+        },
+        {
+          id: 'team-image',
+          prompt: 'team of clinicians and ai researchers collaborating on speech accessibility'
+        }
+      ];
+      images.forEach(({ id, prompt, width = 512, height = 512 }) => {
+        const styledPrompt = `${prompt}, ${styleKeywords}`;
+        const url =
+          'https://image.pollinations.ai/prompt/' +
+          encodeURIComponent(styledPrompt) +
+          `?width=${width}&height=${height}&nologo=true`;
+        fetch(url, { referrer: 'https://endemicmedia.github.io/' })
+          .then(response => response.blob())
+          .then(blob => {
+            const element = doc.getElementById(id);
+            if (element) {
+              element.src = URL.createObjectURL(blob);
+            }
+          })
+          .catch(error => console.warn('Image failed', id, error));
+      });
+    }
+
+    function ensureTailwindStyles() {
+      const cdnLink = doc.getElementById('tailwind-cdn');
+      const loadFallback = () => {
+        if (doc.querySelector('link[data-source="tailwind-fallback"]')) return;
+        const fallback = doc.createElement('link');
+        fallback.rel = 'stylesheet';
+        fallback.href = 'styles/tailwind-fallback.css';
+        fallback.setAttribute('data-source', 'tailwind-fallback');
+        doc.head.appendChild(fallback);
+        body.dataset.tailwind = 'fallback';
+      };
+
+      if (cdnLink) {
+        cdnLink.addEventListener('error', loadFallback, { once: true });
+      }
+
+      requestAnimationFrame(() => {
+        const background = getComputedStyle(body).backgroundColor;
+        if (background === 'rgba(0, 0, 0, 0)') {
+          loadFallback();
+        }
+      });
+    }
+
+    function init() {
+      doc.getElementById('year').textContent = new Date().getFullYear();
+      ensureTailwindStyles();
+      initTheme();
+      initThemeToggle();
+      initForm();
+      loadDynamicImages();
+    }
+
+    if (doc.readyState === 'loading') {
+      doc.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
   </script>
 </body>
 </html>
