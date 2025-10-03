@@ -68,7 +68,7 @@ test('loads Tailwind CDN script and stylesheet', async ({ page }) => {
   expect(info.links.some(href => href.includes('tailwindcss'))).toBe(true);
   expect(info.bodyBg).not.toBe('rgba(0, 0, 0, 0)');
   expect(['flex', 'inline-flex']).toContain(info.buttonDisplay);
-  expect(['', 'fallback']).toContain(info.bodyDataset);
+  expect(['', 'inline-fallback']).toContain(info.bodyDataset);
 });
 
 test('tailwind utilities apply styles to the hero area', async ({ page }) => {
