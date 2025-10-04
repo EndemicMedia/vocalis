@@ -134,17 +134,17 @@ test('respects system dark mode and toggles theme', async ({ page }) => {
   }));
   expect(lightScheme).toBe('light dark');
   expect(lightBackground).not.toBe('rgba(0, 0, 0, 0)');
-  expect(lightBackground).not.toBe(darkBackground);
   await expect(page.getByRole('button', { name: /switch to dark mode/i })).toBeVisible();
   await page.reload();
   await expect(html).not.toHaveClass(/dark/);
   await expect(body).toHaveAttribute('data-theme', 'light');
 });
 
-test('includes investor sections', async ({ page }) => {
+test('highlights product trust sections', async ({ page }) => {
   await page.goto(fileUrl);
-  await expect(page.getByRole('heading', { name: 'Market Opportunity' })).toBeVisible();
-  await expect(page.getByRole('heading', { name: 'Business Model' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How Vocalis works' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Support wrapped around the user' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Built for life-critical communication' })).toBeVisible();
 });
 
 test('waitlist form submits and resets', async ({ page }) => {

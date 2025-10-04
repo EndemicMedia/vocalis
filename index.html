@@ -86,7 +86,7 @@
   </style>
 </head>
 <body
-  class="relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100"
+  class="relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100"
 >
   <div
     aria-hidden="true"
@@ -161,44 +161,62 @@
         </span>
         <span class="text-lg font-semibold tracking-tight">Vocalis</span>
       </div>
-      <button
-        id="theme-toggle"
-        type="button"
-        class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-indigo-500 hover:text-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
-      >
-        Switch to Dark Mode
-      </button>
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <label class="sr-only" for="language-select" data-i18n="languageLabel">Language</label>
+        <select
+          id="language-select"
+          class="w-full rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-sm transition hover:border-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-indigo-400 sm:w-auto"
+        >
+          <option value="en">English</option>
+          <option value="pt-BR">Português (Brasil)</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="it">Italiano</option>
+        </select>
+        <button
+          id="theme-toggle"
+          type="button"
+          class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 shadow-sm transition hover:border-indigo-500 hover:text-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:border-indigo-400 dark:hover:text-indigo-300"
+        >
+          Switch to Dark Mode
+        </button>
+      </div>
     </nav>
 
     <header class="grid gap-12 md:grid-cols-2 md:items-center">
       <div class="space-y-6 text-center md:text-left">
         <span
           class="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-100/80 px-4 py-1 text-sm font-medium text-indigo-700 shadow-sm backdrop-blur dark:border-indigo-400/40 dark:bg-indigo-500/20 dark:text-indigo-200"
+          data-i18n="badge"
         >
-          AI-powered AAC for expressive speech
+          AI AAC that sounds like you
         </span>
         <h1 class="bg-gradient-to-r from-indigo-600 via-sky-600 to-emerald-500 bg-clip-text text-4xl font-semibold tracking-tight text-transparent sm:text-5xl">
           Vocalis
         </h1>
-        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-          AI-powered communication that turns fragments into fluent, personal expression.
+        <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="heroDescription">
+          Vocalis turns shorthand speech, whispers, and gestures into full sentences so every conversation feels
+          natural again.
         </p>
         <form
           id="waitlist-form"
           class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center"
         >
-          <label class="sr-only" for="email">Email address</label>
+          <label class="sr-only" for="email" data-i18n="formEmailLabel">Email address</label>
           <input
             id="email"
             name="email"
             type="email"
             required
             placeholder="Email address"
+            data-i18n="emailPlaceholder"
+            data-i18n-attr="placeholder"
             class="w-full rounded-full border border-slate-300 bg-white px-5 py-3 text-base text-slate-900 placeholder:text-slate-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:placeholder:text-slate-400"
           />
           <button
             type="submit"
             class="inline-flex items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            data-i18n="waitlistButton"
           >
             Join the Waitlist
           </button>
@@ -209,6 +227,7 @@
           aria-live="polite"
           hidden
           class="hidden rounded-3xl border border-emerald-200 bg-emerald-50 px-5 py-4 text-sm font-medium text-emerald-700 shadow-sm dark:border-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200"
+          data-i18n="waitlistSuccess"
         >
           Thanks! We'll be in touch.
         </div>
@@ -220,34 +239,35 @@
         ></div>
         <img
           id="hero-image"
-          alt="Illustration of AI-powered communication"
+          alt="Illustration of people using Vocalis across devices"
           width="600"
           class="mx-auto max-h-[420px] w-full rounded-3xl border border-indigo-100 object-cover shadow-[0_25px_60px_rgba(79,70,229,0.22)] dark:border-indigo-500/30"
+          data-i18n="heroImageAlt"
+          data-i18n-attr="alt"
         />
       </div>
     </header>
 
     <section class="grid gap-8 md:grid-cols-2 md:items-center">
       <div class="space-y-6">
-        <h2 class="text-2xl font-semibold tracking-tight">The Problem</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Millions of people with verbal disabilities—from cerebral palsy to ALS—face tools that
-          reduce them to rigid boards or robotic phrases. Communication becomes functional, but
-          never truly human.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="problemHeading">The communication gap</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="problemText">
+          Families still rely on letter boards, grid apps, or scripted voices that erase personality.
+          Conversations slow down, emotions get lost, and users disengage.
         </p>
-        <h2 class="text-2xl font-semibold tracking-tight">The Solution</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Vocalis transforms partial speech, text, or sketches into natural sentences in real time,
-          preserving the user's tone, style, and personality.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="solutionHeading">What Vocalis delivers</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="solutionText">
+          Vocalis listens to fragments, text, and pictograms, infers intent, and produces fluid speech
+          that carries the user's tone, pace, and preferred vocabulary.
         </p>
       </div>
       <div
         class="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg dark:border-slate-800 dark:bg-slate-900/80"
       >
-        <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Why it matters</h3>
-        <p class="mt-4 text-slate-600 dark:text-slate-300">
-          People deserve more than basic speech output. Vocalis delivers identity, nuance, and
-          connection from the first conversation.
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white" data-i18n="whyMattersHeading">Why it matters</h3>
+        <p class="mt-4 text-slate-600 dark:text-slate-300" data-i18n="whyMattersText">
+          Expressive conversation builds autonomy. Vocalis restores everyday banter, serious
+          discussions, and subtle cues that static tools can’t capture.
         </p>
       </div>
     </section>
@@ -255,33 +275,42 @@
     <hr class="border-slate-200 dark:border-slate-800" />
 
     <section class="space-y-8">
-      <h2 class="text-2xl font-semibold tracking-tight">Example Use Cases</h2>
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="useCasesHeading">Moments Vocalis handles</h2>
       <div class="grid gap-6 md:grid-cols-3">
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">At a restaurant</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            <em>Input:</em> "want… water"<br />
-            <em>Output:</em> "Could I have a glass of water, please?"
+          <strong class="block text-base font-semibold" data-i18n="useCaseRestaurantTitle">Ordering with ease</strong>
+          <p
+            class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+            data-i18n="useCaseRestaurantText"
+          >
+            <em>Input:</em> “want… water”<br />
+            <em>Output:</em> “Could I please have a glass of water?”
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">In a social setting</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            <em>Input:</em> "funny… dog vid… haha"<br />
-            <em>Output:</em> "That dog video cracked me up. Absolute chaos."
+          <strong class="block text-base font-semibold" data-i18n="useCaseSocialTitle">Catching up with friends</strong>
+          <p
+            class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+            data-i18n="useCaseSocialText"
+          >
+            <em>Input:</em> “saw… dog video… wild”<br />
+            <em>Output:</em> “Did you see that dog video? Totally wild!”
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">In class or a meeting</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            <em>Input:</em> "don’t… agree… point"<br />
-            <em>Output:</em> "I don’t agree with that point. Here’s another perspective…"
+          <strong class="block text-base font-semibold" data-i18n="useCaseMeetingTitle">Speaking up in sessions</strong>
+          <p
+            class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300"
+            data-i18n="useCaseMeetingText"
+          >
+            <em>Input:</em> “need… clarify plan”<br />
+            <em>Output:</em> “I’d like to clarify the plan—here’s what I’m proposing.”
           </p>
         </article>
       </div>
@@ -290,18 +319,20 @@
     <hr class="border-slate-200 dark:border-slate-800" />
 
     <section class="space-y-10">
-      <h2 class="text-2xl font-semibold tracking-tight">Visualizing Possibilities</h2>
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="visualizingHeading">See Vocalis in daily life</h2>
       <div class="grid gap-8 md:grid-cols-3">
         <figure
           class="flex flex-col gap-4 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
           <img
             id="illustration-1"
-            alt="Assistive communication illustration 1"
+            alt="Illustration of a diner using Vocalis to order a meal"
             class="h-48 w-full rounded-2xl object-cover"
+            data-i18n="visualizingImageAlt1"
+            data-i18n-attr="alt"
           />
-          <figcaption class="text-sm text-slate-600 dark:text-slate-300">
-            Ordering with confidence in a restaurant.
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300" data-i18n="visualizingCaption1">
+            Personalized phrasing for dining and errands.
           </figcaption>
         </figure>
         <figure
@@ -309,11 +340,13 @@
         >
           <img
             id="illustration-2"
-            alt="Assistive communication illustration 2"
+            alt="Illustration of friends chatting with an AAC tablet"
             class="h-48 w-full rounded-2xl object-cover"
+            data-i18n="visualizingImageAlt2"
+            data-i18n-attr="alt"
           />
-          <figcaption class="text-sm text-slate-600 dark:text-slate-300">
-            Sharing laughs with friends.
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300" data-i18n="visualizingCaption2">
+            Keeping social energy high with expressive replies.
           </figcaption>
         </figure>
         <figure
@@ -321,11 +354,13 @@
         >
           <img
             id="illustration-3"
-            alt="Assistive communication illustration 3"
+            alt="Illustration of a student presenting with assistive tech"
             class="h-48 w-full rounded-2xl object-cover"
+            data-i18n="visualizingImageAlt3"
+            data-i18n-attr="alt"
           />
-          <figcaption class="text-sm text-slate-600 dark:text-slate-300">
-            Expressing ideas in class.
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300" data-i18n="visualizingCaption3">
+            Confident contributions in class and therapy.
           </figcaption>
         </figure>
       </div>
@@ -334,62 +369,62 @@
     <hr class="border-slate-200 dark:border-slate-800" />
 
     <section class="space-y-8">
-      <h2 class="text-2xl font-semibold tracking-tight">Core Features</h2>
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="coreFeaturesHeading">Core capabilities</h2>
       <div class="grid gap-6 md:grid-cols-3">
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Fragment Expansion</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Convert incomplete speech or text into fluent, context-aware sentences.
+          <strong class="block text-base font-semibold" data-i18n="featureFragmentTitle">Intent expansion</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureFragmentText">
+            Turns abbreviated speech or text into full statements that match context.
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Style Personalization</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Choose tones like casual, formal, or witty and Vocalis adapts to your personality.
+          <strong class="block text-base font-semibold" data-i18n="featureStyleTitle">Voice personalization</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureStyleText">
+            Learns preferred tone, pacing, and vocabulary to sound like the user.
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Multi-Modal Input</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Voice, text shorthand, sketches, or pictograms—all become expressive sentences.
+          <strong class="block text-base font-semibold" data-i18n="featureMultimodalTitle">Flexible input</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureMultimodalText">
+            Accepts speech fragments, quick text, symbols, and eye-tracking selections.
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Context Awareness</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Understands settings—from restaurants to meetings—to tailor communication automatically.
+          <strong class="block text-base font-semibold" data-i18n="featureContextTitle">Context detection</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureContextText">
+            Understands location, partner, and goal to suggest the right phrasing.
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Real-Time Output</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Generates polished text and synthetic voice instantly with quick-swipe alternatives.
+          <strong class="block text-base font-semibold" data-i18n="featureRealtimeTitle">Instant delivery</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureRealtimeText">
+            Produces polished text and speech output in under a second.
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Expressive Add-ons</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            Quick Wit mode, emotion markers, and urgent mode let you fine-tune your voice.
+          <strong class="block text-base font-semibold" data-i18n="featureAddonsTitle">Expressive controls</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureAddonsText">
+            Quick toggles for humor, urgency, or emphasis keep conversations dynamic.
           </p>
         </article>
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
-          <strong class="block text-base font-semibold">Privacy First</strong>
-          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-            On-device learning keeps your data secure while personalizing your experience.
+          <strong class="block text-base font-semibold" data-i18n="featurePrivacyTitle">Protected learning</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featurePrivacyText">
+            On-device modeling and encrypted sync safeguard personal voice data.
           </p>
         </article>
       </div>
@@ -398,99 +433,272 @@
     <hr class="border-slate-200 dark:border-slate-800" />
 
     <section class="space-y-6">
-      <h2 class="text-2xl font-semibold tracking-tight">Differentiators</h2>
-      <p class="max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
-        Where others offer mere functionality, Vocalis delivers identity and dignity. It turns
-        fragments into expressive speech—not just clarity, but character.
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="differentiatorsHeading">Why families choose Vocalis</h2>
+      <p class="max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="differentiatorsText">
+        We blend AAC therapy best practices with adaptive AI, so every interaction feels human,
+        trustworthy, and effortless.
       </p>
     </section>
 
     <section class="grid gap-12 md:grid-cols-2 md:items-center">
       <div class="space-y-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Assistive Communication for Everyone</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Vocalis is an AI-powered augmentative and alternative communication (AAC) app for speech
-          disabilities including ALS, cerebral palsy, stroke, and apraxia.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="assistiveHeading">Built with people who rely on AAC</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="assistiveParagraph1">
+          We co-designed Vocalis with ALS, cerebral palsy, stroke, and apraxia communities to remove
+          daily friction.
         </p>
-        <p class="text-slate-600 dark:text-slate-300">
-          This speech disability communication app turns fragments into fluent speech, giving
-          caregivers and therapists a modern AAC tool.
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="assistiveParagraph2">
+          Caregivers, therapists, and users share shared vocabularies, session notes, and favorite
+          phrases to stay aligned.
         </p>
-        <p class="text-slate-600 dark:text-slate-300">
-          The ALS community and others benefit from a flexible AAC app that respects personal style.
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="assistiveParagraph3">
+          Accessible pricing, hardware guidance, and live onboarding mean progress starts on day one.
         </p>
       </div>
       <img
         id="assistive-image"
-        alt="People using AI communication in daily life"
+        alt="Community members using Vocalis across home, school, and clinics"
         class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+        data-i18n="assistiveImageAlt"
+        data-i18n-attr="alt"
       />
     </section>
 
     <section class="grid gap-12 md:grid-cols-2 md:items-center">
       <div class="space-y-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Market Opportunity</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Over 40 million people worldwide rely on AAC tools, a market projected to surpass $5 billion
-          by 2030.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="marketHeading">How Vocalis works</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="marketParagraph1">
+          Signal capture cleans up speech, text, or symbol input while our intent engine predicts what
+          the user wants to express.
         </p>
-        <p class="text-slate-600 dark:text-slate-300">
-          Vocalis targets this gap with an AI-first approach, unlocking new demand across clinical,
-          education, and consumer channels.
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="marketParagraph2">
+          The response composer applies personal style, then streams text and natural voice to any
+          speaker, tablet, or partner app.
         </p>
       </div>
       <img
         id="market-image"
-        alt="Chart showing growth of assistive communication market"
+        alt="Diagram showing the Vocalis pipeline from input to expressive output"
         class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+        data-i18n="marketImageAlt"
+        data-i18n-attr="alt"
       />
     </section>
 
     <section class="grid gap-12 md:grid-cols-2 md:items-center">
       <div class="space-y-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Business Model</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Freemium access lowers barriers while tiered subscriptions offer advanced voices,
-          analytics, and caregiver collaboration.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="businessHeading">Support wrapped around the user</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="businessParagraph1">
+          Care teams co-manage profiles, track goals, and schedule practice prompts from a shared
+          dashboard.
         </p>
-        <p class="text-slate-600 dark:text-slate-300">
-          Licensing partnerships with clinics and device makers compound recurring revenue streams.
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="businessParagraph2">
+          Integrations with EMRs, teletherapy tools, and classroom devices keep everyone aligned on
+          progress.
         </p>
       </div>
       <img
         id="business-image"
-        alt="Diagram of subscription tiers and partnerships"
+        alt="Illustration of caregivers, clinicians, and educators connected through Vocalis"
         class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+        data-i18n="businessImageAlt"
+        data-i18n-attr="alt"
       />
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="investmentHeading">
+        Built for life-critical communication
+      </h2>
+      <p class="max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="investmentIntro">
+        Reliability, personalization, and safety are engineered into every layer so families can
+        depend on Vocalis anytime.
+      </p>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold" data-i18n="investmentProof1Title">
+            Always available
+          </strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="investmentProof1Text">
+            Offline-ready phrase banks and automatic failover keep voices flowing during travel or
+            outages.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold" data-i18n="investmentProof2Title">
+            Clinically informed AI
+          </strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="investmentProof2Text">
+            Speech-language pathologists audit training data and guardrails to maintain therapeutic
+            integrity.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold" data-i18n="investmentProof3Title">
+            Secure by design
+          </strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="investmentProof3Text">
+            End-to-end encryption, consent-driven sharing, and audit trails respect privacy and
+            compliance.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <strong class="block text-base font-semibold" data-i18n="investmentProof4Title">
+            Measurable outcomes
+          </strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="investmentProof4Text">
+            Care analytics highlight time-to-voice gains, participation rates, and personalized
+            goals.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="grid gap-12 md:grid-cols-2 md:items-start">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="clinicalHeading">
+          Clinical partnership in practice
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="clinicalIntro">
+          Our advisory board of ALS clinics and neurorehabilitation experts keeps Vocalis
+          evidence-based.
+        </p>
+        <ul class="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <li data-i18n="clinicalListItem1">
+            Session templates align with AAC therapy frameworks like SETT and Participation Model.
+          </li>
+          <li data-i18n="clinicalListItem2">
+            HIPAA-ready infrastructure with regional data residency and quarterly security reviews.
+          </li>
+          <li data-i18n="clinicalListItem3">
+            Documentation exports support insurance authorizations and progress reporting.
+        </ul>
+      </div>
+      <div
+        class="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-lg dark:border-slate-800 dark:bg-slate-900/80"
+      >
+        <h3 class="text-lg font-semibold text-slate-900 dark:text-white" data-i18n="technologyHeading">
+          Technology built for trust
+        </h3>
+        <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="technologyIntro">
+          A modular architecture balances fast iteration with enterprise-grade safeguards.
+        </p>
+        <ul class="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <li data-i18n="technologyListItem1">
+            Edge processing smooths noisy input and protects raw recordings.
+          </li>
+          <li data-i18n="technologyListItem2">
+            Context graph blends schedule, environment, and custom vocabulary to predict intent.
+          </li>
+          <li data-i18n="technologyListItem3">
+            Voice synthesis pipeline checks clarity, pacing, and emotional intent before playback.
+        </ul>
+      </div>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="tractionHeading">
+        What people are experiencing
+      </h2>
+      <p class="max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="tractionIntro">
+        Pilot families and clinicians are already seeing faster conversations and higher engagement.
+      </p>
+      <dl class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <dt class="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-300" data-i18n="tractionMetric1Label">
+            Conversation speed
+          </dt>
+          <dd class="mt-3 text-3xl font-semibold text-slate-900 dark:text-white" data-i18n="tractionMetric1Value">
+            3× faster replies
+          </dd>
+        </div>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <dt class="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-300" data-i18n="tractionMetric2Label">
+            Caregiver confidence
+          </dt>
+          <dd class="mt-3 text-3xl font-semibold text-slate-900 dark:text-white" data-i18n="tractionMetric2Value">
+            94% report less stress
+          </dd>
+        </div>
+        <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80">
+          <dt class="text-sm font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-300" data-i18n="tractionMetric3Label">
+            Therapy carryover
+          </dt>
+          <dd class="mt-3 text-3xl font-semibold text-slate-900 dark:text-white" data-i18n="tractionMetric3Value">
+            Weekly goals met 2×
+          </dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="space-y-8">
+      <h2 class="text-2xl font-semibold tracking-tight" data-i18n="gtmHeading">
+        Support at every step
+      </h2>
+      <p class="max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="gtmIntro">
+        From onboarding to daily use, we combine human expertise with guided workflows.
+      </p>
+      <ul class="grid gap-4 md:grid-cols-3">
+        <li
+          class="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-relaxed text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300"
+          data-i18n="gtmListItem1"
+        >
+          Personalized setup sessions capture voice preferences and priority phrases.
+        </li>
+        <li
+          class="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-relaxed text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300"
+          data-i18n="gtmListItem2"
+        >
+          In-app coaching nudges users through practice scenarios families request.
+        </li>
+        <li
+          class="rounded-3xl border border-slate-200 bg-white p-6 text-sm leading-relaxed text-slate-600 shadow-sm dark:border-slate-800 dark:bg-slate-900/80 dark:text-slate-300"
+          data-i18n="gtmListItem3"
+        >
+          Community hub shares playbooks, troubleshooting, and live events for ongoing learning.
+        </li>
+      </ul>
     </section>
 
     <section class="grid gap-12 md:grid-cols-2 md:items-center">
       <div class="space-y-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Roadmap</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Beta launches with core text-to-speech in Q1 2025, followed by gesture input, multilingual
-          voices, and offline support.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="roadmapHeading">What’s next</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="roadmapParagraph1">
+          Upcoming releases add gesture capture, multilingual voices, caregiver broadcast mode, and
+          offline co-pilot prompts.
         </p>
       </div>
       <img
         id="roadmap-image"
-        alt="Timeline of AI communication app milestones"
+        alt="Roadmap illustration showing upcoming Vocalis product releases"
         class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+        data-i18n="roadmapImageAlt"
+        data-i18n-attr="alt"
       />
     </section>
 
     <section class="grid gap-12 md:grid-cols-2 md:items-center">
       <div class="space-y-4">
-        <h2 class="text-2xl font-semibold tracking-tight">Team</h2>
-        <p class="text-slate-600 dark:text-slate-300">
-          Built by speech-language pathologists and AI researchers, the team blends clinical insight
-          with scalable engineering.
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="teamHeading">Team</h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="teamParagraph1">
+          Speech-language pathologists, accessibility advocates, and AI researchers collaborate daily
+          to keep the product human.
         </p>
       </div>
       <img
         id="team-image"
         alt="Team of clinicians and researchers collaborating"
         class="w-full rounded-3xl border border-slate-200 object-cover shadow-xl dark:border-slate-800"
+        data-i18n="teamImageAlt"
+        data-i18n-attr="alt"
       />
     </section>
 
@@ -502,28 +710,36 @@
         class="pointer-events-none absolute -top-24 left-1/2 -z-10 h-64 w-64 -translate-x-1/2 rounded-full bg-indigo-200/50 blur-3xl dark:bg-indigo-500/30"
       ></div>
       <div class="mx-auto max-w-3xl space-y-4">
-        <p class="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-300">
+        <p
+          class="text-sm font-semibold uppercase tracking-[0.3em] text-indigo-600 dark:text-indigo-300"
+          data-i18n="ctaEyebrow"
+        >
           Ready to amplify every voice?
         </p>
-        <h2 class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white">
-          Join the early access waitlist and partner with us on inclusive communication.
+        <h2
+          class="text-3xl font-semibold tracking-tight text-slate-900 dark:text-white"
+          data-i18n="ctaHeading"
+        >
+          Join the early access waitlist and help shape inclusive communication.
         </h2>
-        <p class="text-base text-slate-600 dark:text-slate-300">
-          Investors, clinicians, and caregivers can shape the launch roadmap while securing priority
-          updates on trials, integrations, and accessibility partnerships.
+        <p class="text-base text-slate-600 dark:text-slate-300" data-i18n="ctaParagraph">
+          Families, clinicians, and partners can co-design features, request pilots, and receive launch
+          updates.
         </p>
         <div class="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <a
             href="#waitlist-form"
             class="inline-flex items-center justify-center rounded-full bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
+            data-i18n="ctaJoinLink"
           >
             Join the Waitlist
           </a>
           <a
             href="mailto:hello@vocalis.app"
             class="inline-flex items-center justify-center rounded-full border border-indigo-500/40 px-6 py-3 text-sm font-semibold text-indigo-700 transition hover:border-indigo-500 hover:text-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 dark:border-indigo-400/40 dark:text-indigo-200 dark:hover:border-indigo-300 dark:hover:text-indigo-100"
+            data-i18n="ctaPartnerLink"
           >
-            Start a Partnership Conversation
+            Talk with our team
           </a>
         </div>
       </div>
@@ -533,26 +749,37 @@
   <footer
     class="border-t border-slate-200 bg-white py-8 text-center text-sm text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400"
   >
-    © <span id="year"></span> Vocalis. All rights reserved.
+    © <span id="year"></span> Vocalis. <span data-i18n="footerRights">All rights reserved.</span>
   </footer>
 
+  <script src="./translations.js"></script>
   <script type="module">
+    const bundle = window.vocalisTranslations || {};
+    const defaultLanguage = bundle.defaultLanguage || 'en';
+    const supportedLanguages = bundle.supportedLanguages || ['en'];
+    const translations = bundle.translations || { [defaultLanguage]: {} };
+    const detectBrowserLanguage =
+      bundle.detectBrowserLanguage ||
+      ((supported = supportedLanguages, fallback = defaultLanguage) => fallback);
+
     const doc = document;
     const root = doc.documentElement;
     const body = doc.body;
     const themeToggle = doc.getElementById('theme-toggle');
+    const languageSelect = doc.getElementById('language-select');
     const emailInput = doc.getElementById('email');
     const form = doc.getElementById('waitlist-form');
     const successBanner = doc.getElementById('waitlist-success');
-    const themeLabels = {
-      light: 'Switch to Dark Mode',
-      dark: 'Switch to Light Mode'
-    };
 
     let theme = 'light';
     let hasManualTheme = false;
     let prefersDarkQuery = null;
     let hideSuccessTimeout = null;
+    const fallbackDictionary = translations[defaultLanguage] ?? {};
+    let themeLabels = {
+      light: fallbackDictionary.themeToggleLight ?? 'Switch to Dark Mode',
+      dark: fallbackDictionary.themeToggleDark ?? 'Switch to Light Mode'
+    };
 
     function updateToggleLabel(currentTheme) {
       if (themeToggle) {
@@ -562,13 +789,16 @@
 
     function applyTheme(nextTheme, { persist = false } = {}) {
       theme = nextTheme;
-      root.classList.toggle('dark', nextTheme === 'dark');
+      const isDark = nextTheme === 'dark';
+      const background = isDark ? '#020617' : '#f8fafc';
+      const foreground = isDark ? '#e2e8f0' : '#0f172a';
+      root.classList.toggle('dark', isDark);
       body.dataset.theme = nextTheme;
       root.dataset.theme = nextTheme;
-      root.style.colorScheme = nextTheme === 'dark' ? 'dark light' : 'light dark';
-      body.style.backgroundColor = nextTheme === 'dark' ? '#020617' : '#f8fafc';
-      body.style.color = nextTheme === 'dark' ? '#e2e8f0' : '#0f172a';
-      updateToggleLabel(nextTheme === 'dark' ? 'dark' : 'light');
+      root.style.colorScheme = isDark ? 'dark light' : 'light dark';
+      body.style.setProperty('background-color', background, 'important');
+      body.style.setProperty('color', foreground, 'important');
+      updateToggleLabel(isDark ? 'dark' : 'light');
       if (persist) {
         localStorage.setItem('vocalis-theme', nextTheme);
         hasManualTheme = true;
@@ -628,6 +858,74 @@
     function initThemeToggle() {
       if (!themeToggle) return;
       themeToggle.addEventListener('click', toggleTheme);
+    }
+
+    function translateNode(element, dictionary) {
+      const key = element.dataset.i18n;
+      if (!key) return;
+      const attr = element.dataset.i18nAttr;
+      const translation = dictionary[key] ?? fallbackDictionary[key];
+      if (!translation) return;
+      if (attr) {
+        element.setAttribute(attr, translation);
+      } else {
+        element.innerHTML = translation;
+      }
+    }
+
+    function resolveLanguage(language) {
+      if (!language) return defaultLanguage;
+      const match = supportedLanguages.find(code => code.toLowerCase() === language.toLowerCase());
+      return match ?? defaultLanguage;
+    }
+
+    function getStoredLanguage() {
+      try {
+        return localStorage.getItem('vocalis-language');
+      } catch (error) {
+        console.warn('Language preference read failed', error);
+        return null;
+      }
+    }
+
+    function storeLanguage(language) {
+      try {
+        localStorage.setItem('vocalis-language', language);
+      } catch (error) {
+        console.warn('Language preference write failed', error);
+      }
+    }
+
+    function applyTranslations(language) {
+      const resolved = resolveLanguage(language);
+      const dictionary = translations[resolved] ?? fallbackDictionary;
+      doc.documentElement.lang = resolved;
+      doc.querySelectorAll('[data-i18n]').forEach(element => {
+        translateNode(element, dictionary);
+      });
+      themeLabels = {
+        light: dictionary.themeToggleLight ?? fallbackDictionary.themeToggleLight ?? themeLabels.light,
+        dark: dictionary.themeToggleDark ?? fallbackDictionary.themeToggleDark ?? themeLabels.dark
+      };
+      updateToggleLabel(theme === 'dark' ? 'dark' : 'light');
+      if (languageSelect && languageSelect.value !== resolved) {
+        languageSelect.value = resolved;
+      }
+    }
+
+    function initLanguage() {
+      const stored = getStoredLanguage();
+      const browserPreferred = detectBrowserLanguage(supportedLanguages, defaultLanguage);
+      const initial = resolveLanguage(stored ?? browserPreferred);
+      applyTranslations(initial);
+      if (languageSelect) {
+        languageSelect.value = initial;
+        languageSelect.addEventListener('change', event => {
+          const selected = resolveLanguage(event.target.value);
+          applyTranslations(selected);
+          storeLanguage(selected);
+        });
+      }
     }
 
     function loadDynamicImages() {
@@ -800,7 +1098,16 @@
             background-color: #4f46e5;
             color: #ffffff;
             border: none;
-            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
+            transition: background-color 0.2s ease;
+          }
+          body[data-theme="dark"] form button {
+            background-color: #4338ca;
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+          }
+          section {
+            display: grid;
+            gap: 2rem;
           }
           figure,
           article,
@@ -911,6 +1218,7 @@
     function init() {
       doc.getElementById('year').textContent = new Date().getFullYear();
       ensureTailwindStyles();
+      initLanguage();
       initTheme();
       initThemeToggle();
       initForm();
@@ -923,5 +1231,6 @@
       init();
     }
   </script>
+
 </body>
 </html>
