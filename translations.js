@@ -82,6 +82,51 @@
       businessParagraph2:
         'Licensing partnerships with clinics and device makers compound recurring revenue streams.',
       businessImageAlt: 'Diagram of subscription tiers and partnerships',
+      investmentHeading: 'Why Vocalis is Investor-Ready',
+      investmentIntro:
+        'Our go-to-market, technology, and clinical plans form a disciplined path to scale with measurable milestones and diversified revenue.',
+      investmentProof1Title: 'Validated unmet demand',
+      investmentProof1Text:
+        '500+ caregivers, SLPs, and ALS clinics joined our waitlist within six weeks seeking an expressive alternative to static speech boards.',
+      investmentProof2Title: 'Differentiated AI stack',
+      investmentProof2Text:
+        'Our fragment-to-fluency engine blends on-device inference with secure cloud fine-tuning for tone, context, and emotion control.',
+      investmentProof3Title: 'Engaged care ecosystem',
+      investmentProof3Text:
+        'Shared vocabularies, live collaboration, and caregiver dashboards create switching costs and expand seats per household.',
+      investmentProof4Title: 'Scalable channel strategy',
+      investmentProof4Text:
+        'Strategic alliances with DME distributors and digital health platforms accelerate reimbursement-ready deployments.',
+      clinicalHeading: 'Clinical and Regulatory Rigor',
+      clinicalIntro:
+        'We partner with leading ALS centers to ensure Vocalis aligns with evidence-based therapy and meets payer expectations from day one.',
+      clinicalListItem1: 'IRB-approved pilot studies evaluating conversational efficacy and caregiver load.',
+      clinicalListItem2: 'HIPAA-compliant architecture with SOC 2 roadmap and regionally isolated data stores.',
+      clinicalListItem3: 'Reimbursement documentation pack aligning to CPT 92609 and emerging remote therapy codes.',
+      technologyHeading: 'Technology Blueprint',
+      technologyIntro:
+        'Modular services let us personalize quickly while maintaining enterprise-grade uptime and privacy safeguards.',
+      technologyListItem1: 'Edge speech sampling with adaptive noise handling ensures reliable input on consumer hardware.',
+      technologyListItem2: 'Context engine scores intent, environment, and partner to recommend phrasing templates.',
+      technologyListItem3: 'Secure voice synthesis API with audit trails and caregiver approval workflows.',
+      tractionHeading: 'Traction and Upcoming Milestones',
+      tractionIntro:
+        'Early pilots already demonstrate commercial readiness while laying the groundwork for payer-backed expansion.',
+      tractionMetric1Label: 'Signed pilot sites',
+      tractionMetric1Value: '8 rehabilitation networks',
+      tractionMetric2Label: 'Net promoter intent',
+      tractionMetric2Value: '92% of caregivers',
+      tractionMetric3Label: 'Time-to-voice reduction',
+      tractionMetric3Value: '68% faster onboarding',
+      gtmHeading: 'Go-To-Market Execution',
+      gtmIntro:
+        'We balance clinical credibility with consumer-grade usability to unlock rapid adoption across multiple buyer personas.',
+      gtmListItem1:
+        'Co-marketing with ALS associations delivers trusted endorsements and funnels members into guided onboarding cohorts.',
+      gtmListItem2:
+        'Clinic integrations sync progress notes with EMR systems, enabling bundled reimbursement and clinician insights.',
+      gtmListItem3:
+        'Direct-to-family channel pairs hardware kits with virtual training, backed by financing partners for affordability.',
       roadmapHeading: 'Roadmap',
       roadmapParagraph1:
         'Beta launches with core text-to-speech in Q1 2025, followed by gesture input, multilingual voices, and offline support.',
@@ -182,6 +227,51 @@
       businessParagraph2:
         'Parcerias de licenciamento com clínicas e fabricantes ampliam receitas recorrentes.',
       businessImageAlt: 'Diagrama de assinaturas e parcerias de acessibilidade',
+      investmentHeading: 'Por que a Vocalis está pronta para investimento',
+      investmentIntro:
+        'Nossos planos de go-to-market, tecnologia e clínica formam um caminho disciplinado para escalar com marcos mensuráveis e receita diversificada.',
+      investmentProof1Title: 'Demanda não atendida validada',
+      investmentProof1Text:
+        'Mais de 500 cuidadores, fonoaudiólogos e clínicas de ELA entraram na lista de espera em seis semanas buscando uma alternativa expressiva aos quadros estáticos.',
+      investmentProof2Title: 'Stack de IA diferenciado',
+      investmentProof2Text:
+        'Nosso motor de fragmentos para fluência combina inferência no dispositivo com ajuste fino seguro na nuvem para controlar tom, contexto e emoção.',
+      investmentProof3Title: 'Ecossistema de cuidado engajado',
+      investmentProof3Text:
+        'Vocabulários compartilhados, colaboração em tempo real e painéis para cuidadores criam custos de mudança e ampliam assentos por família.',
+      investmentProof4Title: 'Estratégia de canais escalável',
+      investmentProof4Text:
+        'Alianças estratégicas com distribuidores de equipamentos médicos e plataformas de saúde digital aceleram implantações prontas para reembolso.',
+      clinicalHeading: 'Rigor clínico e regulatório',
+      clinicalIntro:
+        'Parcerias com centros líderes de ELA garantem que a Vocalis siga terapias baseadas em evidências e atenda às expectativas dos pagadores desde o início.',
+      clinicalListItem1: 'Estudos-piloto aprovados por comitê de ética avaliam eficácia conversacional e carga do cuidador.',
+      clinicalListItem2: 'Arquitetura compatível com HIPAA, plano para SOC 2 e armazenamento de dados isolado por região.',
+      clinicalListItem3: 'Pacote de documentação de reembolso alinhado ao CPT 92609 e a códigos emergentes de terapia remota.',
+      technologyHeading: 'Blueprint tecnológico',
+      technologyIntro:
+        'Serviços modulares permitem personalização rápida mantendo disponibilidade corporativa e proteção de privacidade.',
+      technologyListItem1: 'Amostragem de fala na borda com tratamento adaptativo de ruído garante entradas confiáveis em hardware de consumo.',
+      technologyListItem2: 'Motor de contexto analisa intenção, ambiente e interlocutor para sugerir modelos de frases.',
+      technologyListItem3: 'API de síntese de voz segura com trilhas de auditoria e fluxos de aprovação para cuidadores.',
+      tractionHeading: 'Tração e próximos marcos',
+      tractionIntro:
+        'Pilotos iniciais já demonstram prontidão comercial enquanto preparam a expansão apoiada por pagadores.',
+      tractionMetric1Label: 'Locais-piloto assinados',
+      tractionMetric1Value: '8 redes de reabilitação',
+      tractionMetric2Label: 'Intenção de recomendação (NPS)',
+      tractionMetric2Value: '92% dos cuidadores',
+      tractionMetric3Label: 'Redução no tempo até a fala',
+      tractionMetric3Value: '68% mais rápido para começar',
+      gtmHeading: 'Execução de go-to-market',
+      gtmIntro:
+        'Equilibramos credibilidade clínica com usabilidade de consumo para destravar adoção rápida em múltiplos perfis de compradores.',
+      gtmListItem1:
+        'Co-marketing com associações de ELA gera endossos confiáveis e direciona membros para jornadas guiadas de onboarding.',
+      gtmListItem2:
+        'Integrações com clínicas sincronizam relatórios de progresso com prontuários eletrônicos, viabilizando reembolso e insights do clínico.',
+      gtmListItem3:
+        'Canal direto para famílias oferece kits de hardware com treinamento virtual e financiamento parceiro para acessibilidade.',
       roadmapHeading: 'Roteiro',
       roadmapParagraph1:
         'Beta com texto para fala no 1º trimestre de 2025, seguido de entrada por gestos, vozes multilíngues e suporte offline.',
@@ -282,6 +372,51 @@
       businessParagraph2:
         'Las alianzas de licenciamiento con clínicas y fabricantes refuerzan ingresos recurrentes.',
       businessImageAlt: 'Diagrama de niveles de suscripción y alianzas',
+      investmentHeading: 'Por qué Vocalis está lista para inversión',
+      investmentIntro:
+        'Nuestros planes comercial, tecnológicos y clínicos trazan una ruta disciplinada para escalar con hitos medibles e ingresos diversificados.',
+      investmentProof1Title: 'Demanda insatisfecha validada',
+      investmentProof1Text:
+        'Más de 500 cuidadores, terapeutas del habla y clínicas de ELA se sumaron a la lista de espera en seis semanas buscando una alternativa expresiva a los tableros estáticos.',
+      investmentProof2Title: 'Stack de IA diferenciado',
+      investmentProof2Text:
+        'Nuestro motor de fragmentos a fluidez combina inferencia en el dispositivo con ajuste seguro en la nube para controlar tono, contexto y emoción.',
+      investmentProof3Title: 'Ecosistema de cuidado comprometido',
+      investmentProof3Text:
+        'Vocabularios compartidos, colaboración en vivo y paneles para cuidadores generan costos de cambio y amplían asientos por hogar.',
+      investmentProof4Title: 'Estrategia de canales escalable',
+      investmentProof4Text:
+        'Alianzas estratégicas con distribuidores de equipos médicos y plataformas de salud digital aceleran implementaciones listas para reembolso.',
+      clinicalHeading: 'Rigor clínico y regulatorio',
+      clinicalIntro:
+        'Colaboramos con los principales centros de ELA para asegurar que Vocalis siga terapias basadas en evidencia y cumpla las expectativas de los pagadores desde el primer día.',
+      clinicalListItem1: 'Estudios piloto aprobados por comités de ética evalúan la eficacia conversacional y la carga del cuidador.',
+      clinicalListItem2: 'Arquitectura compatible con HIPAA, plan hacia SOC 2 y almacenes de datos aislados por región.',
+      clinicalListItem3: 'Paquete de documentación de reembolso alineado al CPT 92609 y a nuevos códigos de terapia remota.',
+      technologyHeading: 'Plano tecnológico',
+      technologyIntro:
+        'Servicios modulares nos permiten personalizar con rapidez manteniendo disponibilidad empresarial y salvaguardas de privacidad.',
+      technologyListItem1: 'Muestreo de voz en el borde con manejo adaptativo de ruido asegura entradas confiables en hardware de consumo.',
+      technologyListItem2: 'Motor de contexto puntúa intención, entorno e interlocutor para recomendar plantillas de frases.',
+      technologyListItem3: 'API de síntesis de voz segura con trazas de auditoría y flujos de aprobación para cuidadores.',
+      tractionHeading: 'Tracción y próximos hitos',
+      tractionIntro:
+        'Los pilotos iniciales ya demuestran preparación comercial mientras sientan las bases para expansión respaldada por pagadores.',
+      tractionMetric1Label: 'Sitios piloto firmados',
+      tractionMetric1Value: '8 redes de rehabilitación',
+      tractionMetric2Label: 'Intención neta de recomendación',
+      tractionMetric2Value: '92% de los cuidadores',
+      tractionMetric3Label: 'Reducción del tiempo hasta la voz',
+      tractionMetric3Value: '68% de incorporación más rápida',
+      gtmHeading: 'Ejecución go-to-market',
+      gtmIntro:
+        'Equilibramos credibilidad clínica con usabilidad de consumo para habilitar adopción rápida en múltiples perfiles compradores.',
+      gtmListItem1:
+        'El co-marketing con asociaciones de ELA aporta avales confiables y canaliza miembros hacia cohortes guiadas de onboarding.',
+      gtmListItem2:
+        'Las integraciones con clínicas sincronizan notas de progreso con los EMR, habilitando reembolso empaquetado e insights clínicos.',
+      gtmListItem3:
+        'El canal directo a familias combina kits de hardware con capacitación virtual y financiación asociada para asequibilidad.',
       roadmapHeading: 'Hoja de ruta',
       roadmapParagraph1:
         'Beta con texto a voz en el primer trimestre de 2025, seguido de entrada por gestos, voces multilingües y soporte sin conexión.',
@@ -382,6 +517,51 @@
       businessParagraph2:
         'Lizenzpartnerschaften mit Kliniken und Geräteherstellern stärken wiederkehrende Umsätze.',
       businessImageAlt: 'Diagramm von Abostufen und Partnerschaften',
+      investmentHeading: 'Warum Vocalis investitionsreif ist',
+      investmentIntro:
+        'Unsere Go-to-Market-, Technologie- und Klinikpläne bilden einen disziplinierten Pfad zur Skalierung mit messbaren Meilensteinen und diversifizierten Erlösen.',
+      investmentProof1Title: 'Validierte ungedeckte Nachfrage',
+      investmentProof1Text:
+        'Über 500 Pflegekräfte, Logopäd:innen und ALS-Kliniken traten innerhalb von sechs Wochen unserer Warteliste bei, um eine ausdrucksstarke Alternative zu statischen Tafeln zu finden.',
+      investmentProof2Title: 'Differenzierter KI-Stack',
+      investmentProof2Text:
+        'Unsere Fragment-zu-Flüssigkeit-Engine kombiniert On-Device-Inferenz mit sicherem Cloud-Finetuning für Ton, Kontext und Emotion.',
+      investmentProof3Title: 'Engagiertes Versorgungsökosystem',
+      investmentProof3Text:
+        'Geteilte Wortschätze, Live-Zusammenarbeit und Betreuungs-Dashboards schaffen Wechselkosten und erhöhen die Plätze pro Haushalt.',
+      investmentProof4Title: 'Skalierbare Kanalstrategie',
+      investmentProof4Text:
+        'Strategische Allianzen mit Hilfsmittelhändlern und Digital-Health-Plattformen beschleunigen erstattungsfähige Roll-outs.',
+      clinicalHeading: 'Klinische und regulatorische Strenge',
+      clinicalIntro:
+        'Wir kooperieren mit führenden ALS-Zentren, damit Vocalis evidenzbasierte Therapien stützt und Kostenträgeranforderungen von Beginn an erfüllt.',
+      clinicalListItem1: 'Ethikkommissionsgenehmigte Pilotstudien prüfen Gesprächswirkung und Betreuerbelastung.',
+      clinicalListItem2: 'HIPAA-konforme Architektur mit SOC-2-Fahrplan und regional isolierten Datenspeichern.',
+      clinicalListItem3: 'Erstattungspaket abgestimmt auf CPT 92609 und neue Codes für Teletherapie.',
+      technologyHeading: 'Technologieplan',
+      technologyIntro:
+        'Modulare Services erlauben schnelle Personalisierung bei unternehmensweiter Verfügbarkeit und Datenschutz.',
+      technologyListItem1: 'Edge-Spracherfassung mit adaptiver Geräuschunterdrückung sichert verlässliche Eingaben auf Consumer-Hardware.',
+      technologyListItem2: 'Kontext-Engine bewertet Intention, Umgebung und Gegenüber, um Formulierungsvorlagen zu empfehlen.',
+      technologyListItem3: 'Sichere Sprachsynthese-API mit Audit-Trails und Genehmigungs-Workflows für Betreuende.',
+      tractionHeading: 'Traktion und nächste Meilensteine',
+      tractionIntro:
+        'Frühe Piloten zeigen bereits Marktreife und ebnen den Weg für kostenträgerfinanzierte Expansion.',
+      tractionMetric1Label: 'Unterzeichnete Pilotstandorte',
+      tractionMetric1Value: '8 Rehabilitationsnetzwerke',
+      tractionMetric2Label: 'Weiterempfehlungsabsicht',
+      tractionMetric2Value: '92% der Betreuungspersonen',
+      tractionMetric3Label: 'Verkürzte Zeit bis zur Stimme',
+      tractionMetric3Value: '68% schnelleres Onboarding',
+      gtmHeading: 'Go-to-Market-Umsetzung',
+      gtmIntro:
+        'Wir verbinden klinische Glaubwürdigkeit mit Consumer-Bedienbarkeit und ermöglichen so schnelle Adoption bei mehreren Käufergruppen.',
+      gtmListItem1:
+        'Co-Marketing mit ALS-Verbänden liefert vertrauenswürdige Empfehlungen und führt Mitglieder in geführte Onboarding-Kohorten.',
+      gtmListItem2:
+        'Klinikanbindungen synchronisieren Fortschrittsnotizen mit KIS-Systemen und ermöglichen gebündelte Erstattung sowie Einblicke für Fachkräfte.',
+      gtmListItem3:
+        'Direktvertrieb an Familien kombiniert Hardware-Kits mit virtuellem Training und Finanzierungspartnern für bessere Leistbarkeit.',
       roadmapHeading: 'Fahrplan',
       roadmapParagraph1:
         'Beta mit Text-zu-Sprache im ersten Quartal 2025, gefolgt von Gesteneingabe, mehrsprachigen Stimmen und Offline-Unterstützung.',
@@ -482,6 +662,51 @@
       businessParagraph2:
         'Accordi di licenza con cliniche e produttori di dispositivi rafforzano i ricavi ricorrenti.',
       businessImageAlt: 'Schema di livelli di abbonamento e partnership',
+      investmentHeading: 'Perché Vocalis è pronta per gli investitori',
+      investmentIntro:
+        'I nostri piani commerciali, tecnologici e clinici definiscono un percorso disciplinato di crescita con traguardi misurabili e ricavi diversificati.',
+      investmentProof1Title: 'Domanda insoddisfatta validata',
+      investmentProof1Text:
+        'Oltre 500 caregiver, logopedisti e cliniche SLA si sono iscritti alla lista d’attesa in sei settimane alla ricerca di un’alternativa espressiva alle tavole statiche.',
+      investmentProof2Title: 'Stack di IA differenziante',
+      investmentProof2Text:
+        'Il nostro motore da frammento a fluidità combina inferenza on-device con fine tuning cloud sicuro per controllare tono, contesto ed emozione.',
+      investmentProof3Title: 'Ecosistema di cura coinvolto',
+      investmentProof3Text:
+        'Vocabolari condivisi, collaborazione live e dashboard per caregiver generano costi di cambio e aumentano le licenze per nucleo familiare.',
+      investmentProof4Title: 'Strategia di canale scalabile',
+      investmentProof4Text:
+        'Alleanze strategiche con distributori di ausili e piattaforme di digital health accelerano implementazioni pronte al rimborso.',
+      clinicalHeading: 'Rigore clinico e normativo',
+      clinicalIntro:
+        'Collaboriamo con i principali centri SLA per garantire che Vocalis segua terapie basate su evidenze e soddisfi le richieste dei payer fin dal primo giorno.',
+      clinicalListItem1: 'Studi pilota approvati dai comitati etici valutano efficacia conversazionale e carico del caregiver.',
+      clinicalListItem2: 'Architettura conforme HIPAA con piano per la certificazione SOC 2 e archivi dati isolati per regione.',
+      clinicalListItem3: 'Pacchetto documentale per il rimborso allineato al CPT 92609 e ai nuovi codici di terapia remota.',
+      technologyHeading: 'Blueprint tecnologico',
+      technologyIntro:
+        'Servizi modulari permettono di personalizzare rapidamente mantenendo uptime enterprise e salvaguardie della privacy.',
+      technologyListItem1: 'Campionamento vocale edge con gestione adattiva del rumore garantisce input affidabili su hardware consumer.',
+      technologyListItem2: 'Motore contestuale valuta intenzione, ambiente e interlocutore per suggerire modelli di frasi.',
+      technologyListItem3: 'API di sintesi vocale sicura con audit trail e workflow di approvazione per caregiver.',
+      tractionHeading: 'Traction e prossime tappe',
+      tractionIntro:
+        'I primi piloti mostrano già preparazione commerciale e costruiscono le basi per l’espansione sostenuta dai payer.',
+      tractionMetric1Label: 'Siti pilota firmati',
+      tractionMetric1Value: '8 reti di riabilitazione',
+      tractionMetric2Label: 'Intento di raccomandazione',
+      tractionMetric2Value: '92% dei caregiver',
+      tractionMetric3Label: 'Riduzione del time-to-voice',
+      tractionMetric3Value: 'Onboarding più rapido del 68%',
+      gtmHeading: 'Esecuzione go-to-market',
+      gtmIntro:
+        'Bilanciamo credibilità clinica ed esperienza consumer per ottenere adozione rapida tra molteplici buyer persona.',
+      gtmListItem1:
+        'Co-marketing con le associazioni SLA offre endorsement affidabili e convoglia i membri in percorsi guidati di onboarding.',
+      gtmListItem2:
+        'Integrazioni con le cliniche sincronizzano i progressi con gli EMR, abilitando rimborsi bundle e insight per i clinici.',
+      gtmListItem3:
+        'Canale diretto alle famiglie che abbina kit hardware a formazione virtuale, con partner finanziari per migliorarne l’accessibilità.',
       roadmapHeading: 'Roadmap',
       roadmapParagraph1:
         'Beta con sintesi vocale nel primo trimestre 2025, seguita da input gestuale, voci multilingue e supporto offline.',
