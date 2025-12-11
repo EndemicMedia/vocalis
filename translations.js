@@ -56,6 +56,9 @@
       featureAddonsTitle: 'Expressive controls',
       featureAddonsText:
         'Quick toggles for humor, urgency, or emphasis keep conversations dynamic.',
+      featureToneTitle: 'Tone awareness',
+      featureToneText:
+        'Color signals mirror conversation mood so neurodiverse users can adjust tone in real time.',
       featurePrivacyTitle: 'Protected learning',
       featurePrivacyText:
         'On-device modeling and encrypted sync safeguard personal voice data.',
@@ -69,6 +72,22 @@
         'Caregivers, therapists, and users share shared vocabularies, session notes, and favorite phrases to stay aligned.',
       assistiveParagraph3:
         'Accessible pricing, hardware guidance, and live onboarding mean progress starts on day one.',
+      intonationHeading: 'Conversation mood indicator',
+      intonationIntro:
+        'Live color cues translate tension, empathy, or playfulness so autistic and neurodivergent users can read the room and adjust tone before misunderstandings happen.',
+      intonationBenefit1Title: 'Real-time safety net',
+      intonationBenefit1Text:
+        'Calming blues and greens confirm balanced tone; amber and red flag when phrasing feels sharp.',
+      intonationBenefit2Title: 'Confidence in nuance',
+      intonationBenefit2Text:
+        'Color shifts pair with hints like “sounds direct” or “warm and light” to coach social cues.',
+      intonationBenefit3Title: 'Ready for any surface',
+      intonationBenefit3Text:
+        'Mobile overlays now; future AR view keeps cues discreet for in-person conversations.',
+      intonationImageAlt1: 'Phone interface showing conversation with calm blue mood ring',
+      intonationCaption1: 'Gentle blue and green hues reassure the speaker when tone lands as supportive.',
+      intonationImageAlt2: 'AR glasses overlay projecting purple alert for tense dialogue',
+      intonationCaption2: 'A subtle AR glow pivots to amber and violet when dialogue risks feeling too sharp.',
       assistiveImageAlt: 'Community members using Vocalis across home, school, and clinics',
       marketHeading: 'How Vocalis works',
       marketParagraph1:
@@ -206,6 +225,9 @@
       featureAddonsTitle: 'Controles expressivos',
       featureAddonsText:
         'Alternâncias rápidas para humor, urgência ou ênfase mantêm a conversa dinâmica.',
+      featureToneTitle: 'Consciência de tom',
+      featureToneText:
+        'Sinais em cores refletem o clima da conversa para que pessoas neurodivergentes ajustem o tom em tempo real.',
       featurePrivacyTitle: 'Aprendizado protegido',
       featurePrivacyText:
         'Modelagem no dispositivo e sincronização criptografada protegem dados de voz pessoais.',
@@ -219,6 +241,22 @@
         'Cuidadores, terapeutas e usuários compartilham vocabulários, notas de sessão e frases favoritas para manter o alinhamento.',
       assistiveParagraph3:
         'Preços acessíveis, orientação de hardware e onboarding ao vivo garantem progresso desde o primeiro dia.',
+      intonationHeading: 'Indicador de humor da conversa',
+      intonationIntro:
+        'Códigos de cor ao vivo traduzem tensão, empatia ou leveza para que pessoas autistas e neurodivergentes entendam o ambiente e ajustem o tom antes de mal-entendidos.',
+      intonationBenefit1Title: 'Rede de segurança em tempo real',
+      intonationBenefit1Text:
+        'Azuis e verdes suaves confirmam equilíbrio; âmbar e vermelho sinalizam quando a frase soa incisiva.',
+      intonationBenefit2Title: 'Confiança na nuance',
+      intonationBenefit2Text:
+        'Mudanças de cor vêm com dicas como “soa direto” ou “leve e caloroso” para orientar pistas sociais.',
+      intonationBenefit3Title: 'Pronto para qualquer superfície',
+      intonationBenefit3Text:
+        'Sobreposição móvel hoje; visão em AR no futuro mantém os sinais discretos em conversas presenciais.',
+      intonationImageAlt1: 'Interface de celular mostrando conversa com anel azul de humor calmo',
+      intonationCaption1: 'Tons de azul e verde tranquilizam o usuário quando o tom soa acolhedor.',
+      intonationImageAlt2: 'Sobreposição de óculos AR projetando alerta roxo para diálogo tenso',
+      intonationCaption2: 'Um brilho em AR muda para âmbar e violeta quando o diálogo fica mais rígido.',
       assistiveImageAlt: 'Comunidade usando o Vocalis em casa, na escola e em clínicas',
       marketHeading: 'Como o Vocalis funciona',
       marketParagraph1:
@@ -356,6 +394,9 @@
       featureAddonsTitle: 'Controles expresivos',
       featureAddonsText:
         'Conmutadores rápidos para humor, urgencia o énfasis mantienen viva la conversación.',
+      featureToneTitle: 'Conciencia de tono',
+      featureToneText:
+        'Señales de color reflejan el estado de ánimo de la conversación para que personas neurodivergentes ajusten el tono en tiempo real.',
       featurePrivacyTitle: 'Aprendizaje protegido',
       featurePrivacyText:
         'Modelos en el dispositivo y sincronización cifrada resguardan los datos de voz personales.',
@@ -369,6 +410,22 @@
         'Cuidadores, terapeutas y personas usuarias comparten vocabularios, notas y frases favoritas para mantenerse alineados.',
       assistiveParagraph3:
         'Precios accesibles, guía de hardware y onboarding en vivo aseguran avances desde el primer día.',
+      intonationHeading: 'Indicador de ánimo de la conversación',
+      intonationIntro:
+        'Indicadores de color en vivo traducen tensión, empatía o juego para que personas autistas y neurodivergentes lean el ambiente y ajusten el tono antes de malentendidos.',
+      intonationBenefit1Title: 'Red de seguridad en tiempo real',
+      intonationBenefit1Text:
+        'Azules y verdes calman cuando el tono está equilibrado; ámbar y rojo alertan si suena brusco.',
+      intonationBenefit2Title: 'Confianza en los matices',
+      intonationBenefit2Text:
+        'Los cambios de color se acompañan de pistas como “suena directo” o “cálido y ligero” para guiar las interacciones.',
+      intonationBenefit3Title: 'Listo para cualquier superficie',
+      intonationBenefit3Text:
+        'Superposición móvil hoy; vista en AR después mantiene las señales discretas en persona.',
+      intonationImageAlt1: 'Interfaz móvil mostrando conversación con anillo azul de ánimo calmado',
+      intonationCaption1: 'Azules y verdes suaves tranquilizan al hablante cuando el tono llega como apoyo.',
+      intonationImageAlt2: 'Superposición de gafas AR proyectando alerta púrpura para diálogo tenso',
+      intonationCaption2: 'Un halo sutil cambia a ámbar y violeta cuando el diálogo puede sentirse demasiado incisivo.',
       assistiveImageAlt: 'Comunidad usando Vocalis en hogares, escuelas y clínicas',
       marketHeading: 'Cómo funciona Vocalis',
       marketParagraph1:
@@ -506,6 +563,9 @@
       featureAddonsTitle: 'Ausdrucksregler',
       featureAddonsText:
         'Schnellschalter für Humor, Dringlichkeit oder Betonung halten Gespräche lebendig.',
+      featureToneTitle: 'Tonwahrnehmung',
+      featureToneText:
+        'Farbhinweise spiegeln die Stimmung des Gesprächs, damit neurodivergente Nutzer:innen den Ton in Echtzeit anpassen können.',
       featurePrivacyTitle: 'Geschütztes Lernen',
       featurePrivacyText:
         'On-Device-Modelle und verschlüsselte Synchronisation schützen persönliche Sprachdaten.',
@@ -519,6 +579,22 @@
         'Pflegende, Therapeut:innen und Nutzer:innen teilen Wortschätze, Sitzungsnotizen und Lieblingssätze, um abgestimmt zu bleiben.',
       assistiveParagraph3:
         'Faire Preise, Hardware-Beratung und Live-Onboarding sorgen für Fortschritt ab Tag eins.',
+      intonationHeading: 'Stimmungsindikator für Gespräche',
+      intonationIntro:
+        'Live-Farbcodes übersetzen Spannung, Empathie oder Humor, damit autistische und neurodivergente Menschen die Situation einschätzen und den Ton anpassen, bevor Missverständnisse entstehen.',
+      intonationBenefit1Title: 'Echtzeit-Sicherheitsnetz',
+      intonationBenefit1Text:
+        'Beruhigendes Blau und Grün bedeuten Balance; Amber und Rot warnen, wenn Formulierungen schroff wirken.',
+      intonationBenefit2Title: 'Sicherheit bei Nuancen',
+      intonationBenefit2Text:
+        'Farbwechsel werden mit Hinweisen wie “klingt direkt” oder “warm und leicht” kombiniert, um soziale Signale zu üben.',
+      intonationBenefit3Title: 'Bereit für jedes Display',
+      intonationBenefit3Text:
+        'Mobile Overlays heute; AR-Ansicht später hält Hinweise dezent im direkten Gespräch.',
+      intonationImageAlt1: 'Smartphone-Oberfläche mit blauem Stimmungsring für ruhiges Gespräch',
+      intonationCaption1: 'Sanfte Blau- und Grüntöne zeigen, wenn der Ton unterstützend ankommt.',
+      intonationImageAlt2: 'AR-Brille mit violettem Hinweis für angespanntes Gespräch',
+      intonationCaption2: 'Ein dezentes AR-Leuchten wechselt zu Bernstein und Violett, wenn der Dialog zu scharf wirkt.',
       assistiveImageAlt: 'Community, die Vocalis zu Hause, in der Schule und in Kliniken nutzt',
       marketHeading: 'So funktioniert Vocalis',
       marketParagraph1:
@@ -656,6 +732,9 @@
       featureAddonsTitle: 'Controlli espressivi',
       featureAddonsText:
         'Scorciatoie per ironia, urgenza o enfasi mantengono viva la conversazione.',
+      featureToneTitle: 'Consapevolezza del tono',
+      featureToneText:
+        'Segnali a colori riflettono l’umore della conversazione così le persone neurodivergenti possono modulare la voce in tempo reale.',
       featurePrivacyTitle: 'Apprendimento protetto',
       featurePrivacyText:
         'Modelli locali e sincronizzazione crittografata tutelano i dati vocali personali.',
@@ -669,6 +748,22 @@
         'Caregiver, terapisti e utenti condividono vocabolari, note di sessione e frasi preferite per restare allineati.',
       assistiveParagraph3:
         'Prezzi accessibili, guida hardware e onboarding live permettono progressi dal primo giorno.',
+      intonationHeading: 'Indicatore di umore della conversazione',
+      intonationIntro:
+        'Codici colore in tempo reale traducono tensione, empatia o ironia, aiutando persone autistiche e neurodivergenti a capire il contesto e adattare il tono prima che nascano incomprensioni.',
+      intonationBenefit1Title: 'Rete di sicurezza immediata',
+      intonationBenefit1Text:
+        'Blu e verde rassicurano quando il tono è equilibrato; ambra e rosso avvisano se suona troppo brusco.',
+      intonationBenefit2Title: 'Sicurezza nelle sfumature',
+      intonationBenefit2Text:
+        'I cambi di colore includono spunti come “suona diretto” o “caldo e leggero” per allenare le relazioni.',
+      intonationBenefit3Title: 'Pronto su ogni superficie',
+      intonationBenefit3Text:
+        'Sovrapposizione mobile oggi; vista AR in futuro mantiene gli indici discreti nelle conversazioni dal vivo.',
+      intonationImageAlt1: 'Interfaccia su smartphone con anello blu di umore tranquillo',
+      intonationCaption1: 'Blu e verde morbidi mostrano quando il tono arriva come supportivo.',
+      intonationImageAlt2: 'Overlay di occhiali AR che proietta avviso viola per dialogo teso',
+      intonationCaption2: 'Un bagliore discreto passa ad ambra e viola quando il dialogo rischia di sembrare troppo tagliente.',
       assistiveImageAlt: 'Comunità che usa Vocalis a casa, a scuola e in clinica',
       marketHeading: 'Come funziona Vocalis',
       marketParagraph1:
