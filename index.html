@@ -422,6 +422,14 @@
         <article
           class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
         >
+          <strong class="block text-base font-semibold" data-i18n="featureToneTitle">Tone awareness</strong>
+          <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featureToneText">
+            Color signals mirror conversation mood so neurodiverse users can adjust tone in real time.
+          </p>
+        </article>
+        <article
+          class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
           <strong class="block text-base font-semibold" data-i18n="featurePrivacyTitle">Protected learning</strong>
           <p class="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="featurePrivacyText">
             On-device modeling and encrypted sync safeguard personal voice data.
@@ -462,6 +470,80 @@
         data-i18n="assistiveImageAlt"
         data-i18n-attr="alt"
       />
+    </section>
+
+    <section class="grid gap-12 md:grid-cols-2 md:items-center">
+      <div class="space-y-4">
+        <h2 class="text-2xl font-semibold tracking-tight" data-i18n="intonationHeading">
+          Conversation mood indicator
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300" data-i18n="intonationIntro">
+          Live color cues translate tension, empathy, or playfulness so autistic and neurodivergent
+          users can read the room and adjust tone before misunderstandings happen.
+        </p>
+        <div class="grid gap-4 sm:grid-cols-3">
+          <article
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+          >
+            <strong class="block text-sm font-semibold" data-i18n="intonationBenefit1Title">
+              Real-time safety net
+            </strong>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="intonationBenefit1Text">
+              Calming blues and greens confirm balanced tone; amber and red flag when phrasing feels sharp.
+            </p>
+          </article>
+          <article
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+          >
+            <strong class="block text-sm font-semibold" data-i18n="intonationBenefit2Title">
+              Confidence in nuance
+            </strong>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="intonationBenefit2Text">
+              Color shifts pair with hints like “sounds direct” or “warm and light” to coach social cues.
+            </p>
+          </article>
+          <article
+            class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+          >
+            <strong class="block text-sm font-semibold" data-i18n="intonationBenefit3Title">
+              Ready for any surface
+            </strong>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300" data-i18n="intonationBenefit3Text">
+              Mobile overlays now; future AR view keeps cues discreet for in-person conversations.
+            </p>
+          </article>
+        </div>
+      </div>
+      <div class="space-y-6">
+        <figure
+          class="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <img
+            id="intonation-image-1"
+            alt="Phone interface showing conversation with calm blue mood ring"
+            class="h-56 w-full rounded-2xl object-cover"
+            data-i18n="intonationImageAlt1"
+            data-i18n-attr="alt"
+          />
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300" data-i18n="intonationCaption1">
+            Gentle blue and green hues reassure the speaker when tone lands as supportive.
+          </figcaption>
+        </figure>
+        <figure
+          class="flex flex-col gap-3 rounded-3xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/80"
+        >
+          <img
+            id="intonation-image-2"
+            alt="AR glasses overlay projecting purple alert for tense dialogue"
+            class="h-56 w-full rounded-2xl object-cover"
+            data-i18n="intonationImageAlt2"
+            data-i18n-attr="alt"
+          />
+          <figcaption class="text-sm text-slate-600 dark:text-slate-300" data-i18n="intonationCaption2">
+            A subtle AR glow pivots to amber and violet when dialogue risks feeling too sharp.
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="grid gap-12 md:grid-cols-2 md:items-center">
@@ -963,6 +1045,14 @@
         {
           id: 'assistive-image',
           prompt: 'diverse people using accessible ai communication app throughout daily routines'
+        },
+        {
+          id: 'intonation-image-1',
+          prompt: 'mobile app showing color-coded mood ring for conversation tone accessibility support'
+        },
+        {
+          id: 'intonation-image-2',
+          prompt: 'ar glasses overlay with subtle color halo indicating conversation intensity for neurodivergent support'
         },
         {
           id: 'market-image',
