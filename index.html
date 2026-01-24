@@ -30,7 +30,7 @@
   <meta property="og:site_name" content="Vocalis" />
   <meta
     property="og:image"
-    content="https://image.pollinations.ai/prompt/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration"
+    content="https://gen.pollinations.ai/image/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration?model=flux"
   />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -42,7 +42,7 @@
   />
   <meta
     name="twitter:image"
-    content="https://image.pollinations.ai/prompt/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration"
+    content="https://gen.pollinations.ai/image/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration?model=flux"
   />
   <meta name="twitter:site" content="@vocalis" />
   <meta name="twitter:creator" content="@vocalis" />
@@ -61,7 +61,7 @@
         "name": "Vocalis",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://image.pollinations.ai/prompt/Vocalis%20speech%20wave%20logo%20minimalist%20modern"
+          "url": "https://gen.pollinations.ai/image/Vocalis%20speech%20wave%20logo%20minimalist%20modern?model=flux"
         }
       }
     }
@@ -1074,9 +1074,9 @@
       images.forEach(({ id, prompt, width = 512, height = 512 }) => {
         const styledPrompt = `${prompt}, ${styleKeywords}`;
         const url =
-          'https://image.pollinations.ai/prompt/' +
+          'https://gen.pollinations.ai/image/' +
           encodeURIComponent(styledPrompt) +
-          `?width=${width}&height=${height}&nologo=true`;
+          `?width=${width}&height=${height}&nologo=true&model=flux`;
         fetch(url, { referrer: 'https://endemicmedia.github.io/' })
           .then(response => response.blob())
           .then(blob => {

@@ -41,7 +41,7 @@ test('has no console errors or failed requests and loads quickly', async ({ page
   expect(loadTime).toBeLessThan(5000);
   const filteredErrors = errors.filter(error => !error.includes('ERR_CERT_AUTHORITY_INVALID'));
   expect(filteredErrors).toEqual([]);
-  const filteredFailed = failed.filter(url => !url.includes('image.pollinations.ai'));
+  const filteredFailed = failed.filter(url => !url.includes('gen.pollinations.ai'));
   expect(filteredFailed).toEqual([]);
 });
 
