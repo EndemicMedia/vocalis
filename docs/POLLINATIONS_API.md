@@ -230,9 +230,21 @@ Publishable keys are designed for client-side use and are safe to expose in publ
 const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?model=flux&width=${width}&height=${height}&nologo=true&key=pk_9sbL41ofRXSoaOC2`;
 ```
 
+**Caching implementation:**
+
+The landing page implements intelligent image caching to minimize API calls:
+
+- **localStorage caching:** Images are stored as base64 data URLs
+- **7-day expiration:** Cached images expire after 7 days
+- **Automatic cleanup:** Old cache entries are cleared when storage quota is reached
+- **Cache statistics:** Console logs show hit/miss rates for monitoring
+
+This caching strategy dramatically reduces Pollen consumption - on repeat visits, 0 API calls are made!
+
 **Best practices:**
 
-1. Monitor your Pollen balance regularly
-2. Cache generated images to reduce API calls
-3. Implement error handling for rate limits
+1. Monitor your Pollen balance regularly at <https://enter.pollinations.ai>
+2. Check browser console for cache statistics (e.g., "Image cache: 11 hits, 0 misses (100% hit rate)")
+3. Clear cache if images need to be refreshed: `localStorage.clear()`
 4. Consider using a server-side proxy with a secret key for high-traffic production deployments
+5. Monitor localStorage usage - each image is ~50-200KB as base64
