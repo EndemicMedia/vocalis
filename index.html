@@ -30,7 +30,7 @@
   <meta property="og:site_name" content="Vocalis" />
   <meta
     property="og:image"
-    content="https://image.pollinations.ai/prompt/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration"
+    content="https://gen.pollinations.ai/image/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration?model=flux&key=pk_9sbL41ofRXSoaOC2"
   />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -42,7 +42,7 @@
   />
   <meta
     name="twitter:image"
-    content="https://image.pollinations.ai/prompt/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration"
+    content="https://gen.pollinations.ai/image/Vocalis%20AAC%20app%20landing%20page%20minimalist%20modern%20tall%20illustration?model=flux&key=pk_9sbL41ofRXSoaOC2"
   />
   <meta name="twitter:site" content="@vocalis" />
   <meta name="twitter:creator" content="@vocalis" />
@@ -61,7 +61,7 @@
         "name": "Vocalis",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://image.pollinations.ai/prompt/Vocalis%20speech%20wave%20logo%20minimalist%20modern"
+          "url": "https://gen.pollinations.ai/image/Vocalis%20speech%20wave%20logo%20minimalist%20modern?model=flux&key=pk_9sbL41ofRXSoaOC2"
         }
       }
     }
@@ -1011,6 +1011,77 @@
     }
 
     function loadDynamicImages() {
+      const CACHE_VERSION = 'v1';
+      const CACHE_EXPIRY_DAYS = 7;
+      const CACHE_PREFIX = 'vocalis-img-';
+
+      // Generate cache key from prompt and dimensions
+      function getCacheKey(prompt, width, height) {
+        const hash = prompt.split('').reduce((acc, char) => {
+          return ((acc << 5) - acc) + char.charCodeAt(0) | 0;
+        }, 0);
+        return `${CACHE_PREFIX}${CACHE_VERSION}-${hash}-${width}x${height}`;
+      }
+
+      // Get cached image data URL
+      function getCachedImage(key) {
+        try {
+          const cached = localStorage.getItem(key);
+          if (!cached) return null;
+
+          const data = JSON.parse(cached);
+          const now = Date.now();
+          const expiryMs = CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+
+          if (now - data.timestamp > expiryMs) {
+            localStorage.removeItem(key);
+            return null;
+          }
+
+          return data.dataUrl;
+        } catch (error) {
+          console.warn('Cache read failed', key, error);
+          return null;
+        }
+      }
+
+      // Store image as data URL in cache
+      function setCachedImage(key, dataUrl) {
+        try {
+          const data = {
+            dataUrl: dataUrl,
+            timestamp: Date.now()
+          };
+          localStorage.setItem(key, JSON.stringify(data));
+        } catch (error) {
+          console.warn('Cache write failed (quota exceeded?)', key, error);
+          // If quota exceeded, clear old cache entries
+          if (error.name === 'QuotaExceededError') {
+            clearOldCache();
+          }
+        }
+      }
+
+      // Clear cache entries older than expiry
+      function clearOldCache() {
+        try {
+          const now = Date.now();
+          const expiryMs = CACHE_EXPIRY_DAYS * 24 * 60 * 60 * 1000;
+
+          for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith(CACHE_PREFIX)) {
+              const cached = JSON.parse(localStorage.getItem(key));
+              if (now - cached.timestamp > expiryMs) {
+                localStorage.removeItem(key);
+              }
+            }
+          }
+        } catch (error) {
+          console.warn('Cache cleanup failed', error);
+        }
+      }
+
       const styleKeywords = [
         'Minimalist, modern illustration',
         'tall aspect ratio poster aesthetic',
@@ -1023,6 +1094,7 @@
         'gentle diffused lighting',
         'elegant typography accents'
       ].join(', ');
+
       const images = [
         {
           id: 'hero-image',
@@ -1071,22 +1143,54 @@
           prompt: 'team of clinicians and ai researchers collaborating on speech accessibility'
         }
       ];
+
+      let cacheHits = 0;
+      let cacheMisses = 0;
+
       images.forEach(({ id, prompt, width = 512, height = 512 }) => {
         const styledPrompt = `${prompt}, ${styleKeywords}`;
+        const cacheKey = getCacheKey(styledPrompt, width, height);
+        const cachedDataUrl = getCachedImage(cacheKey);
+
+        const element = doc.getElementById(id);
+        if (!element) return;
+
+        // Check cache first
+        if (cachedDataUrl) {
+          element.src = cachedDataUrl;
+          cacheHits++;
+          return;
+        }
+
+        // Cache miss - fetch from API
+        cacheMisses++;
         const url =
-          'https://image.pollinations.ai/prompt/' +
+          'https://gen.pollinations.ai/image/' +
           encodeURIComponent(styledPrompt) +
-          `?width=${width}&height=${height}&nologo=true`;
+          `?width=${width}&height=${height}&nologo=true&model=flux&key=pk_9sbL41ofRXSoaOC2`;
+
         fetch(url, { referrer: 'https://endemicmedia.github.io/' })
           .then(response => response.blob())
           .then(blob => {
-            const element = doc.getElementById(id);
-            if (element) {
-              element.src = URL.createObjectURL(blob);
-            }
+            // Convert blob to data URL for caching
+            const reader = new FileReader();
+            reader.onloadend = () => {
+              const dataUrl = reader.result;
+              element.src = dataUrl;
+              setCachedImage(cacheKey, dataUrl);
+            };
+            reader.readAsDataURL(blob);
           })
           .catch(error => console.warn('Image failed', id, error));
       });
+
+      // Log cache statistics
+      if (cacheHits > 0 || cacheMisses > 0) {
+        console.log(`Image cache: ${cacheHits} hits, ${cacheMisses} misses (${Math.round(cacheHits / (cacheHits + cacheMisses) * 100)}% hit rate)`);
+        if (cacheMisses > 0) {
+          console.log(`Saved ~${cacheMisses} API calls worth of Pollen!`);
+        }
+      }
     }
 
     function ensureTailwindStyles() {
