@@ -211,27 +211,28 @@ Get usage history and spending data.
 
 ## Notes for Vocalis Implementation
 
-For the Vocalis landing page, we're using the image generation API without authentication. This works for development but has limitations:
+The Vocalis landing page uses a publishable API key (`pk_9sbL41ofRXSoaOC2`) for image generation. This provides:
 
-- Limited to anonymous tier rate limits (15 seconds between requests)
-- May show Pollinations watermark
-- Subject to IP-based rate limiting
+- **Better rate limits:** 5 seconds between requests (Seed tier) vs 15 seconds for anonymous
+- **No watermark:** Images are generated without the Pollinations logo
+- **Consistent quality:** Priority access to generation resources
 
-**For production, consider:**
+**Security considerations:**
 
-1. Obtaining a publishable key (`pk_`) from <https://enter.pollinations.ai>
-2. Adding the key to image requests: `?key=YOUR_PUBLISHABLE_KEY`
-3. Setting up proper error handling for rate limits
-4. Caching generated images to reduce API calls
+Publishable keys are designed for client-side use and are safe to expose in public code. However, note:
+- The key is IP rate-limited (1 pollen per IP per hour)
+- Traffic to your app will consume your Pollen balance
+- Consider monitoring usage at <https://enter.pollinations.ai>
 
 **Current implementation:**
 
 ```javascript
-const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?model=flux&width=${width}&height=${height}&nologo=true`;
+const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?model=flux&width=${width}&height=${height}&nologo=true&key=pk_9sbL41ofRXSoaOC2`;
 ```
 
-**With API key (recommended for production):**
+**Best practices:**
 
-```javascript
-const url = `https://gen.pollinations.ai/image/${encodeURIComponent(prompt)}?model=flux&width=${width}&height=${height}&nologo=true&key=YOUR_PUBLISHABLE_KEY`;
-```
+1. Monitor your Pollen balance regularly
+2. Cache generated images to reduce API calls
+3. Implement error handling for rate limits
+4. Consider using a server-side proxy with a secret key for high-traffic production deployments
